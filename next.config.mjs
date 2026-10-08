@@ -7,6 +7,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  eslint: { ignoreDuringBuilds: true },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

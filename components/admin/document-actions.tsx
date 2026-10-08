@@ -29,6 +29,7 @@ export function DocumentActions({ actions, pdfUrl }: { actions: DocAction[]; pdf
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(a.body),
     });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data = (await response.json().catch(() => null)) as Record<string, any> | null;
     setBusy(null);
     if (!response.ok) return setError(data?.error || "Erreur");

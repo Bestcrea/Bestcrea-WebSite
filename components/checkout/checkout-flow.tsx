@@ -275,7 +275,7 @@ export function CheckoutFlow({ authed, userName, plan, basePricing, options }: P
                   </label>
                 </div>
               ) : (
-                <p className="text-sm text-neutral-600">Aucun moyen de paiement n'est disponible pour le moment.</p>
+                <p className="text-sm text-neutral-600">Aucun moyen de paiement n&apos;est disponible pour le moment.</p>
               )}
             </>
           ) : null}
