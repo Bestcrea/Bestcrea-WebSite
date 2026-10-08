@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2, MessageCircle, Upload } from "lucide-react";
+import { PaymentDetails } from "@/components/checkout/payment-details";
 import { Button } from "@/components/ui/button";
 
 type Props = {
@@ -84,7 +85,7 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
   return (
     <div className="space-y-4 rounded-2xl border border-primary/10 bg-background p-5">
       <h2 className="font-semibold text-primary">Paiement</h2>
-      <ul className="space-y-1 text-sm">{instructions.map((l) => <li key={l}>{l}</li>)}</ul>
+      <PaymentDetails lines={instructions} />
       {whatsapp ? (
         <a href={whatsapp.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
           <MessageCircle className="h-4 w-4" /> {whatsapp.label}

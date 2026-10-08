@@ -33,28 +33,28 @@ export function getPaymentOptions(): PaymentOption[] {
       label: "Virement CIH Bank",
       logo: "/images/payment-methods/cih-bank.png",
       kind: "bank",
-      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_CIH_RIB"), "Indiquez la référence de commande dans le motif du virement."],
+      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_CIH_RIB", "Titulaire : MAROUAN BAHTIT | RIB : 230 360 2369395211027800 01 | IBAN : MA64 2303 6023 6939 5211 0278 0001 | Code SWIFT : CIHMMAMC"), "Indiquez la référence de commande dans le motif du virement."],
     },
     {
       id: "bank_albarid",
       label: "Virement Al Barid Bank",
       logo: "/images/payment-methods/al-barid-bank.png",
       kind: "bank",
-      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_ALBARID_RIB"), "Indiquez la référence de commande dans le motif du virement."],
+      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_ALBARID_RIB", "Titulaire : MAROUAN BAHTIT | RIB : 350810000000001391021495 | IBAN : MA64 350 810 0000000013910214 95"), "Indiquez la référence de commande dans le motif du virement."],
     },
     {
       id: "bank_chaabi",
       label: "Virement Banque Populaire (Chaabi)",
       logo: "/images/payment-methods/banque-populaire.png",
       kind: "bank",
-      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_CHAABI_RIB"), "Indiquez la référence de commande dans le motif du virement."],
+      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_CHAABI_RIB", "Titulaire : Mr BAHTIT MAROUAN | RIB : 181 360 2111148747730009 08 | IBAN : MA64 181360211114874773000908 | Code SWIFT : BCPOMAMC"), "Indiquez la référence de commande dans le motif du virement."],
     },
     {
       id: "cash_plus",
       label: "Cash Plus",
       logo: "/images/payment-methods/cash-plus.jpeg",
       kind: "transfer",
-      instructions: [...lines("PAYMENT_CASHPLUS"), "Saisissez ensuite le numéro de transaction (référence) ou joignez le reçu."],
+      instructions: [...lines("PAYMENT_CASHPLUS", "Bénéficiaire : MR MAROUAN BAHTIT | Téléphone : 0636499140"), "Saisissez ensuite le numéro de transaction (référence) ou joignez le reçu."],
     },
     {
       id: "western_union",
@@ -88,7 +88,7 @@ export function getPaymentOptions(): PaymentOption[] {
       instructions: ["Paiement sécurisé par PayPal. Votre commande est confirmée dès validation du paiement."],
     });
   }
-  else if (process.env.PAYMENT_PAYPAL_EMAIL?.trim()) {
+  else {
     // No PayPal API keys: manual PayPal (customer sends money to our PayPal address, then gives the transaction ID).
     options.push({
       id: "paypal",
@@ -96,7 +96,8 @@ export function getPaymentOptions(): PaymentOption[] {
       logo: "/images/payment-methods/paypal.jpeg",
       kind: "bank",
       instructions: [
-        `Envoyez le montant à notre compte PayPal : ${process.env.PAYMENT_PAYPAL_EMAIL.trim()}`,
+        `Compte PayPal : ${env("PAYMENT_PAYPAL_EMAIL", "bahtitmarouan@gmail.com")}`,
+        "Envoyez le montant de la commande à ce compte PayPal.",
         "Indiquez la référence de commande dans la note du paiement.",
         "Ajoutez ensuite l'identifiant de transaction (optionnel) ou joignez la capture.",
       ],

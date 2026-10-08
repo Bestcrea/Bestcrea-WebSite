@@ -9,6 +9,7 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { RegisterForm } from "@/components/client/register-form";
 import { LoginForm } from "@/components/client/login-form";
+import { PaymentDetails } from "@/components/checkout/payment-details";
 import type { PaymentOption } from "@/lib/payment-config";
 import type { CartPricing } from "@/lib/checkout";
 
@@ -38,7 +39,7 @@ type Step = "cart" | "account" | "payment";
 export function CheckoutFlow({ authed, userName, plan, basePricing, options }: Props) {
   const router = useRouter();
   const locale = useLocale();
-  const [step, setStep] = useState<Step>(authed ? "cart" : "cart");
+  const [step, setStep] = useState<Step>(authed ? "payment" : "account");
   const [accountTab, setAccountTab] = useState<"register" | "login">("register");
 
   const [pricing, setPricing] = useState<CartPricing>(basePricing);
@@ -246,9 +247,7 @@ export function CheckoutFlow({ authed, userName, plan, basePricing, options }: P
 
               {selected ? (
                 <div className="rounded-2xl border bg-white p-5">
-                  <ul className="space-y-1.5 text-sm text-neutral-700">
-                    {selected.instructions.map((l) => <li key={l}>{l}</li>)}
-                  </ul>
+                  <PaymentDetails lines={selected.instructions} />
                   {selected.whatsapp ? (
                     <a href={selected.whatsapp.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
                       <MessageCircle className="h-4 w-4" /> {selected.whatsapp.label}
