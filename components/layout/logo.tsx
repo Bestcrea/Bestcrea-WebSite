@@ -19,13 +19,12 @@ export function Logo({ className, inverted = false }: LogoProps) {
     >
       <span
         className={cn(
-          "relative grid h-9 w-9 place-items-center rounded-lg text-sm font-bold transition-transform duration-300 group-hover:scale-105",
-          inverted
-            ? "bg-accent text-accent-foreground"
-            : "bg-primary text-primary-foreground group-hover:bg-accent group-hover:text-accent-foreground"
+          "relative grid h-10 w-10 shrink-0 place-items-center transition-transform duration-300 group-hover:scale-105",
+          inverted && "rounded-lg bg-white p-1"
         )}
       >
-        BC
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo.png" alt="" width={40} height={40} className="h-full w-full object-contain" />
       </span>
       <span className="text-lg md:text-xl">
         Best
