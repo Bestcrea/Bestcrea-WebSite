@@ -5,11 +5,20 @@ export type PaymentOption = {
   label: string;
   logo: string;
   kind: "bank" | "transfer" | "paypal";
+  /** WhatsApp link to request payment details (Western Union / RIA). */
+  whatsapp?: { url: string; label: string };
   /** Lines shown to the customer once selected. Account details come from env vars (never hard-coded). */
   instructions: string[];
 };
 
 const env = (key: string, fallback = "À communiquer par notre équipe") => process.env[key]?.trim() || fallback;
+
+/** Env value with several lines separated by "|" (e.g. "Titulaire : X | RIB : Y | IBAN : Z"). */
+const lines = (key: string, fallback = "À communiquer par notre équipe") =>
+  env(key, fallback).split("|").map((l) => l.trim()).filter(Boolean);
+
+const WHATSAPP_NUMBER = (process.env.PAYMENT_WHATSAPP || "212636499140").replace(/\D/g, "");
+const whatsappLink = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 /** Whether PayPal is configured on the server (secrets stay server-side). */
 export function paypalEnabled() {
@@ -24,42 +33,50 @@ export function getPaymentOptions(): PaymentOption[] {
       label: "Virement CIH Bank",
       logo: "/images/payment-methods/cih-bank.png",
       kind: "bank",
-      instructions: [`Bénéficiaire : ${beneficiary}`, `RIB CIH : ${env("PAYMENT_CIH_RIB")}`, "Indiquez la référence de commande dans le motif du virement."],
+      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_CIH_RIB"), "Indiquez la référence de commande dans le motif du virement."],
     },
     {
       id: "bank_albarid",
       label: "Virement Al Barid Bank",
       logo: "/images/payment-methods/al-barid-bank.png",
       kind: "bank",
-      instructions: [`Bénéficiaire : ${beneficiary}`, `RIB Al Barid Bank : ${env("PAYMENT_ALBARID_RIB")}`, "Indiquez la référence de commande dans le motif du virement."],
+      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_ALBARID_RIB"), "Indiquez la référence de commande dans le motif du virement."],
     },
     {
       id: "bank_chaabi",
       label: "Virement Banque Populaire (Chaabi)",
       logo: "/images/payment-methods/banque-populaire.png",
       kind: "bank",
-      instructions: [`Bénéficiaire : ${beneficiary}`, `RIB Banque Populaire : ${env("PAYMENT_CHAABI_RIB")}`, "Indiquez la référence de commande dans le motif du virement."],
+      instructions: [`Bénéficiaire : ${beneficiary}`, ...lines("PAYMENT_CHAABI_RIB"), "Indiquez la référence de commande dans le motif du virement."],
     },
     {
       id: "cash_plus",
       label: "Cash Plus",
       logo: "/images/payment-methods/cash-plus.jpeg",
       kind: "transfer",
-      instructions: [`Bénéficiaire : ${beneficiary}`, `Téléphone / pièce du bénéficiaire : ${env("PAYMENT_TRANSFER_CONTACT")}`, "Saisissez ensuite le numéro de transaction (référence)."],
+      instructions: [...lines("PAYMENT_CASHPLUS"), "Saisissez ensuite le numéro de transaction (référence) ou joignez le reçu."],
     },
     {
       id: "western_union",
       label: "Western Union",
       logo: "/images/payment-methods/western-union.png",
-      kind: "transfer",
-      instructions: [`Bénéficiaire : ${beneficiary}`, `Pays / ville : ${env("PAYMENT_TRANSFER_COUNTRY", "Maroc — Khemisset")}`, "Saisissez ensuite le MTCN (référence)."],
+      kind: "bank",
+      whatsapp: {
+        url: whatsappLink("Bonjour Bestcrea, je souhaite payer ma commande par Western Union. Pouvez-vous m'envoyer les informations de paiement ?"),
+        label: "Demander les informations de paiement via WhatsApp",
+      },
+      instructions: [`Bénéficiaire : ${beneficiary}`, "Cliquez sur le bouton ci-dessous : nous vous envoyons les informations de paiement sur WhatsApp.", "Après l'envoi, indiquez la référence du transfert (optionnel) ou joignez le reçu."],
     },
     {
       id: "ria",
       label: "RIA",
       logo: "/images/payment-methods/ria.png",
-      kind: "transfer",
-      instructions: [`Bénéficiaire : ${beneficiary}`, `Pays / ville : ${env("PAYMENT_TRANSFER_COUNTRY", "Maroc — Khemisset")}`, "Saisissez ensuite le numéro de transfert (référence)."],
+      kind: "bank",
+      whatsapp: {
+        url: whatsappLink("Bonjour Bestcrea, je souhaite payer ma commande par RIA. Pouvez-vous m'envoyer les informations de paiement ?"),
+        label: "Demander les informations de paiement via WhatsApp",
+      },
+      instructions: [`Bénéficiaire : ${beneficiary}`, "Cliquez sur le bouton ci-dessous : nous vous envoyons les informations de paiement sur WhatsApp.", "Après l'envoi, indiquez la référence du transfert (optionnel) ou joignez le reçu."],
     },
   ];
   if (paypalEnabled()) {

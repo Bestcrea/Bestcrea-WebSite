@@ -94,6 +94,7 @@ export default async function ClientOrderPage({ params, searchParams }: Props) {
             method={payment.method}
             paymentStatus={payment.status}
             instructions={option.instructions}
+            whatsapp={option.whatsapp}
             currentReference={payment.reference}
             hasProof={!!payment.proofPath}
             paymentId={payment.id}

@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Loader2, Upload } from "lucide-react";
+import { Loader2, MessageCircle, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
   method: string;
   paymentStatus: string;
   instructions: string[];
+  whatsapp?: { url: string; label: string };
   currentReference: string | null;
   hasProof: boolean;
   paymentId: string | null;
@@ -17,7 +18,7 @@ type Props = {
 };
 
 /** Pending-payment actions on a client's order: PayPal return/retry, reference + proof upload. */
-export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, currentReference, hasProof, paymentId, locale }: Props) {
+export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, whatsapp, currentReference, hasProof, paymentId, locale }: Props) {
   const router = useRouter();
   const params = useSearchParams();
   const [reference, setReference] = useState(currentReference ?? "");
@@ -82,6 +83,11 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
     <div className="space-y-4 rounded-2xl border border-primary/10 bg-background p-5">
       <h2 className="font-semibold text-primary">Paiement</h2>
       <ul className="space-y-1 text-sm">{instructions.map((l) => <li key={l}>{l}</li>)}</ul>
+      {whatsapp ? (
+        <a href={whatsapp.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
+          <MessageCircle className="h-4 w-4" /> {whatsapp.label}
+        </a>
+      ) : null}
 
       {method === "paypal" ? (
         <Button variant="accent" onClick={retryPaypal} disabled={busy}>
