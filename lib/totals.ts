@@ -41,7 +41,8 @@ const toCents = (n: number) => Math.round((Number.isFinite(n) ? n : 0) * 100);
 const fromCents = (c: number) => c / 100;
 const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
 
-export const DEFAULT_VAT = 20;
+/** Bestcrea n'est pas assujettie à la TVA : taux par défaut 0 % (modifiable ligne par ligne dans l'éditeur). */
+export const DEFAULT_VAT = 0;
 
 export function computeTotals(input: LineInput[], defaultTaxRate = DEFAULT_VAT): Totals {
   let subtotalC = 0;

@@ -76,7 +76,7 @@ export default async function AdminOrderPage({ params }: Props) {
         ))}
         <div className="space-y-1 p-4 text-right text-sm">
           {Number(order.discountTotal) > 0 ? <p className="text-emerald-700">Réduction {order.couponCode ? `(${order.couponCode})` : ""} : - {money(order.discountTotal)}</p> : null}
-          <p>TVA : {money(order.taxTotal)} {order.currency}</p>
+          {Number(order.taxTotal) > 0 ? <p>TVA : {money(order.taxTotal)} {order.currency}</p> : null}
           <p className="text-lg font-semibold text-primary">Total TTC : {money(order.total)} {order.currency}</p>
         </div>
       </div>

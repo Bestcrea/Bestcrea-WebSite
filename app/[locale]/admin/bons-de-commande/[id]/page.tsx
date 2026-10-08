@@ -95,7 +95,7 @@ export default async function AdminPurchaseOrderPage({ params }: Props) {
         </Table>
         <div className="space-y-1 border-t p-4 text-right text-sm">
           <p>Total HT : {money(po.totalHt)} {po.currency}</p>
-          <p>TVA : {money(po.taxTotal)} {po.currency}</p>
+          {Number(po.taxTotal) > 0 ? <p>TVA : {money(po.taxTotal)} {po.currency}</p> : null}
           <p className="text-base font-semibold text-primary">Total TTC : {money(po.total)} {po.currency}</p>
         </div>
       </div>

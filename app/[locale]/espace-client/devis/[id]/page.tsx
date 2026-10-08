@@ -79,7 +79,7 @@ export default async function ClientQuoteDetailPage({ params }: Props) {
         </table>
         <div className="space-y-1 border-t p-4 text-right text-sm">
           <p>Total HT : {money(quote.totalHt)} {quote.currency}</p>
-          <p>TVA : {money(quote.taxTotal)} {quote.currency}</p>
+          {Number(quote.taxTotal) > 0 ? <p>TVA : {money(quote.taxTotal)} {quote.currency}</p> : null}
           <p className="text-lg font-semibold text-primary">Total TTC : {money(quote.total)} {quote.currency}</p>
         </div>
       </div>

@@ -46,7 +46,7 @@ export default async function NewQuotePage({ params, searchParams }: Props) {
           description: request?.description ?? "",
           quoteRequestId: request?.id,
           lines: request
-            ? [{ name: request.title, description: "", quantity: String(request.quantity ?? 1), unitPrice: "0", discountPercent: "0", taxRate: "20" }]
+            ? [{ name: request.title, description: "", quantity: String(request.quantity ?? 1), unitPrice: "0", discountPercent: "0", taxRate: "0" }]
             : undefined,
         }}
       />

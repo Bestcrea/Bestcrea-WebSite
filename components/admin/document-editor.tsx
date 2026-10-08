@@ -39,7 +39,7 @@ type Props = {
 };
 
 const input = "w-full rounded-lg border px-3 py-2 text-sm disabled:bg-slate-50";
-const emptyLine = (): EditorLine => ({ name: "", description: "", quantity: "1", unitPrice: "0", discountPercent: "0", taxRate: "20" });
+const emptyLine = (): EditorLine => ({ name: "", description: "", quantity: "1", unitPrice: "0", discountPercent: "0", taxRate: "0" });
 
 const DEFAULT_TERMS =
   "Paiement selon les modalités convenues. Les travaux démarrent après réception de l'acompte ou du paiement intégral.";

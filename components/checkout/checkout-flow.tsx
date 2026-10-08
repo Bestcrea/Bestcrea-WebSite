@@ -302,7 +302,7 @@ export function CheckoutFlow({ authed, userName, plan, basePricing, options }: P
             ) : null}
             <div className="mt-4 space-y-2 border-t pt-4 text-sm">
               <div className="flex justify-between"><span className="text-neutral-600">Total HT</span><span>{fmt(pricing.totalHt)} {plan.currency}</span></div>
-              <div className="flex justify-between"><span className="text-neutral-600">TVA ({pricing.vatRate}%)</span><span>{fmt(pricing.tax)} {plan.currency}</span></div>
+              {pricing.vatRate > 0 ? <div className="flex justify-between"><span className="text-neutral-600">TVA ({pricing.vatRate}%)</span><span>{fmt(pricing.tax)} {plan.currency}</span></div> : null}
             </div>
             <div className="mt-4 flex items-end justify-between border-t pt-4">
               <span className="text-base font-semibold text-neutral-900">Total TTC</span>
