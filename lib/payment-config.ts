@@ -88,6 +88,20 @@ export function getPaymentOptions(): PaymentOption[] {
       instructions: ["Paiement sécurisé par PayPal. Votre commande est confirmée dès validation du paiement."],
     });
   }
+  else if (process.env.PAYMENT_PAYPAL_EMAIL?.trim()) {
+    // No PayPal API keys: manual PayPal (customer sends money to our PayPal address, then gives the transaction ID).
+    options.push({
+      id: "paypal",
+      label: "PayPal",
+      logo: "/images/payment-methods/paypal.jpeg",
+      kind: "bank",
+      instructions: [
+        `Envoyez le montant à notre compte PayPal : ${process.env.PAYMENT_PAYPAL_EMAIL.trim()}`,
+        "Indiquez la référence de commande dans la note du paiement.",
+        "Ajoutez ensuite l'identifiant de transaction (optionnel) ou joignez la capture.",
+      ],
+    });
+  }
   return options;
 }
 

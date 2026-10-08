@@ -11,6 +11,8 @@ type Props = {
   paymentStatus: string;
   instructions: string[];
   whatsapp?: { url: string; label: string };
+  /** True only for the automatic PayPal checkout (API keys configured). */
+  paypalFlow?: boolean;
   currentReference: string | null;
   hasProof: boolean;
   paymentId: string | null;
@@ -18,7 +20,7 @@ type Props = {
 };
 
 /** Pending-payment actions on a client's order: PayPal return/retry, reference + proof upload. */
-export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, whatsapp, currentReference, hasProof, paymentId, locale }: Props) {
+export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, whatsapp, paypalFlow, currentReference, hasProof, paymentId, locale }: Props) {
   const router = useRouter();
   const params = useSearchParams();
   const [reference, setReference] = useState(currentReference ?? "");
@@ -30,7 +32,7 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
   // Returning from PayPal: ?token=<paypal order id>. The server verifies the capture before marking paid.
   useEffect(() => {
     const token = params.get("token");
-    if (method !== "paypal" || !token || captured.current || paymentStatus === "confirmed") return;
+    if (!paypalFlow || !token || captured.current || paymentStatus === "confirmed") return;
     captured.current = true;
     setBusy(true);
     fetch("/api/checkout/paypal/capture", {
@@ -89,7 +91,7 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
         </a>
       ) : null}
 
-      {method === "paypal" ? (
+      {paypalFlow ? (
         <Button variant="accent" onClick={retryPaypal} disabled={busy}>
           {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null} Payer avec PayPal
         </Button>
