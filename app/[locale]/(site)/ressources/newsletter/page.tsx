@@ -1,0 +1,35 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { PageHero } from "@/components/layout/page-hero";
+import { NewsletterForm } from "@/components/sections/newsletter-form";
+
+type Props = { params: { locale: string } };
+
+const benefitKeys = ["insights", "offers", "launches"] as const;
+
+export default async function NewsletterPage({ params }: Props) {
+  setRequestLocale(params.locale);
+  const t = await getTranslations("Pages.resources.newsletter");
+
+  return (
+    <>
+      <PageHero eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
+
+      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
+        <div className="grid gap-4 sm:grid-cols-3">
+          {benefitKeys.map((key) => (
+            <div
+              key={key}
+              className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-5"
+            >
+              <p className="text-sm font-semibold text-primary">{t(`benefits.${key}`)}</p>
+            </div>
+          ))}
+        </div>
+
+        <NewsletterForm />
+
+        <p className="mt-4 text-xs text-primary/40">{t("privacyNote")}</p>
+      </section>
+    </>
+  );
+}

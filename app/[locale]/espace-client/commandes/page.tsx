@@ -1,0 +1,53 @@
+import { setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { requireClientSession } from "@/lib/session";
+import { prisma } from "@/lib/prisma";
+import { dateFmt, money } from "@/lib/format";
+import { StatusBadge } from "@/components/admin/status-badge";
+import { Button } from "@/components/ui/button";
+
+type Props = { params: { locale: string } };
+
+export default async function ClientOrdersPage({ params }: Props) {
+  setRequestLocale(params.locale);
+  const session = await requireClientSession();
+  if (!session) return null;
+
+  const orders = await prisma.order.findMany({
+    where: { userId: session.user.id },
+    include: { items: { select: { name: true } } },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-3xl font-semibold text-primary">Mes commandes</h1>
+        <p className="mt-2 text-muted-foreground">Suivez vos commandes et vos paiements.</p>
+      </div>
+      <div className="overflow-hidden rounded-3xl border border-primary/10 bg-background">
+        {orders.length === 0 ? (
+          <p className="p-6 text-sm text-muted-foreground">Aucune commande pour le moment.</p>
+        ) : (
+          <ul className="divide-y divide-primary/10">
+            {orders.map((o) => (
+              <li key={o.id} className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <Link href={`/espace-client/commandes/${o.id}`} className="font-semibold text-primary hover:underline">{o.number}</Link>
+                  <p className="text-sm text-muted-foreground">{o.items.map((i) => i.name).join(", ")}</p>
+                  <p className="text-xs text-muted-foreground">{dateFmt(o.createdAt)}</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <StatusBadge status={o.paymentStatus} />
+                  <StatusBadge status={o.status} />
+                  <p className="font-semibold text-primary">{money(o.total)} {o.currency}</p>
+                  <Button asChild variant="accent" size="sm"><Link href={`/espace-client/commandes/${o.id}`}>Détails</Link></Button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}

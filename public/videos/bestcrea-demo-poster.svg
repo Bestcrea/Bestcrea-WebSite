@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Bestcrea demo">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B1A47"/>
+      <stop offset="55%" stop-color="#5a2a6b"/>
+      <stop offset="100%" stop-color="#2a1233"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <circle cx="980" cy="160" r="180" fill="#B6FF00" fill-opacity="0.12"/>
+  <circle cx="220" cy="560" r="220" fill="#B6FF00" fill-opacity="0.08"/>
+  <rect x="560" y="300" width="160" height="120" rx="24" fill="#B6FF00" fill-opacity="0.9"/>
+  <polygon points="620,330 620,390 680,360" fill="#3B1A47"/>
+</svg>

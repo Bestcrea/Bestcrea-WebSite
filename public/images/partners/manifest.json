@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "albarid-bank",
+    "name": "Al Barid Bank",
+    "logo": "/images/partners/albarid-bank.webp",
+    "website": null
+  },
+  {
+    "slug": "anthropic",
+    "name": "Anthropic",
+    "logo": "/images/partners/anthropic.webp",
+    "website": "https://www.anthropic.com"
+  },
+  {
+    "slug": "apple",
+    "name": "Apple",
+    "logo": "/images/partners/apple.webp",
+    "website": "https://www.apple.com"
+  },
+  {
+    "slug": "attijariwafa-bank",
+    "name": "Attijariwafa Bank",
+    "logo": "/images/partners/attijariwafa-bank.webp",
+    "website": null
+  },
+  {
+    "slug": "aws",
+    "name": "AWS",
+    "logo": "/images/partners/aws.webp",
+    "website": "https://aws.amazon.com"
+  },
+  {
+    "slug": "cih-bank",
+    "name": "CIH Bank",
+    "logo": "/images/partners/cih-bank.webp",
+    "website": null
+  },
+  {
+    "slug": "cloudflare",
+    "name": "Cloudflare",
+    "logo": "/images/partners/cloudflare.webp",
+    "website": "https://www.cloudflare.com"
+  },
+  {
+    "slug": "cpanel",
+    "name": "cPanel",
+    "logo": "/images/partners/cpanel.webp",
+    "website": "https://cpanel.net"
+  },
+  {
+    "slug": "dell",
+    "name": "Dell",
+    "logo": "/images/partners/dell.webp",
+    "website": "https://www.dell.com"
+  },
+  {
+    "slug": "firebase",
+    "name": "Firebase",
+    "logo": "/images/partners/firebase.webp",
+    "website": "https://firebase.google.com"
+  },
+  {
+    "slug": "github",
+    "name": "GitHub",
+    "logo": "/images/partners/github.webp",
+    "website": "https://github.com"
+  },
+  {
+    "slug": "google-cloud",
+    "name": "Google Cloud",
+    "logo": "/images/partners/google-cloud.webp",
+    "website": "https://cloud.google.com"
+  },
+  {
+    "slug": "hostinger",
+    "name": "Hostinger",
+    "logo": "/images/partners/hostinger.webp",
+    "website": "https://www.hostinger.com"
+  },
+  {
+    "slug": "hp",
+    "name": "HP",
+    "logo": "/images/partners/hp.webp",
+    "website": "https://www.hp.com"
+  },
+  {
+    "slug": "indh",
+    "name": "INDH",
+    "logo": "/images/partners/indh.webp",
+    "website": null
+  },
+  {
+    "slug": "intel",
+    "name": "Intel",
+    "logo": "/images/partners/intel.webp",
+    "website": "https://www.intel.com"
+  },
+  {
+    "slug": "laravel",
+    "name": "Laravel",
+    "logo": "/images/partners/laravel.webp",
+    "website": "https://laravel.com"
+  },
+  {
+    "slug": "magento",
+    "name": "Magento",
+    "logo": "/images/partners/magento.webp",
+    "website": "https://magento.com"
+  },
+  {
+    "slug": "mastercard",
+    "name": "Mastercard",
+    "logo": "/images/partners/mastercard.webp",
+    "website": "https://www.mastercard.com"
+  },
+  {
+    "slug": "meta",
+    "name": "Meta",
+    "logo": "/images/partners/meta.webp",
+    "website": "https://www.meta.com"
+  },
+  {
+    "slug": "microsoft",
+    "name": "Microsoft",
+    "logo": "/images/partners/microsoft.webp",
+    "website": "https://www.microsoft.com"
+  },
+  {
+    "slug": "mongodb",
+    "name": "MongoDB",
+    "logo": "/images/partners/mongodb.webp",
+    "website": "https://www.mongodb.com"
+  },
+  {
+    "slug": "nindohost",
+    "name": "NindoHost",
+    "logo": "/images/partners/nindohost.webp",
+    "website": null
+  },
+  {
+    "slug": "nvidia",
+    "name": "NVIDIA",
+    "logo": "/images/partners/nvidia.webp",
+    "website": "https://www.nvidia.com"
+  },
+  {
+    "slug": "oracle",
+    "name": "Oracle",
+    "logo": "/images/partners/oracle.webp",
+    "website": "https://www.oracle.com"
+  },
+  {
+    "slug": "paypal",
+    "name": "PayPal",
+    "logo": "/images/partners/paypal.webp",
+    "website": "https://www.paypal.com"
+  },
+  {
+    "slug": "plesk",
+    "name": "Plesk",
+    "logo": "/images/partners/plesk.webp",
+    "website": "https://www.plesk.com"
+  },
+  {
+    "slug": "postgresql",
+    "name": "PostgreSQL",
+    "logo": "/images/partners/postgresql.webp",
+    "website": "https://www.postgresql.org"
+  },
+  {
+    "slug": "vercel",
+    "name": "Vercel",
+    "logo": "/images/partners/vercel.webp",
+    "website": "https://vercel.com"
+  },
+  {
+    "slug": "wordpress",
+    "name": "WordPress",
+    "logo": "/images/partners/wordpress.webp",
+    "website": "https://wordpress.org"
+  }
+]

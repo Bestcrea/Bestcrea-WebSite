@@ -1,0 +1,1196 @@
+{
+  "ourMethod": {
+    "label": "NOTRE MÉTHODE",
+    "title": "Une présentation claire de votre futur produit",
+    "subtitle": "De l'idée au livrable, nous orchestrons design, code et automatisation avec une narration visuelle forte.",
+    "learnMore": "En savoir plus →",
+    "steps": {
+      "discovery": {
+        "title": "Cadrage & vision",
+        "description": "Objectifs business, parcours utilisateurs et priorités produit."
+      },
+      "design": {
+        "title": "Design & prototype",
+        "description": "Interfaces premium, motion et validation rapide."
+      },
+      "build": {
+        "title": "Build & scale",
+        "description": "Développement robuste, QA et déploiement continu."
+      }
+    }
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Construisez l'expérience digitale qui fait grandir votre marque",
+      "description": "Design, développement, SaaS et automatisation — une équipe premium pour transformer vos idées en produits qui convertissent.",
+      "cta": "Devis Gratuit",
+      "whatsappCta": "Contact WhatsApp",
+      "trustMigration": "Migration gérée gratuite",
+      "trustGuarantee": "Garantie satisfait ou remboursé 30 jours",
+      "trustSupport": "Support interne 24/7",
+      "hostingerTitle": "Démarrez l'hébergement",
+      "hostingerSubtitle": "avec Hostinger",
+      "nindohostTitle": "Hébergement local",
+      "nindohostSubtitle": "avec Nindohost",
+      "maTitle": "149 Dhs",
+      "maSubtitle": "1ère année",
+      "domainPlaceholder1": "Vérifiez la disponibilité de votre nom de domaine",
+      "domainPlaceholder2": "Recherchez votre domaine ici"
+    },
+    "promo": {
+      "eyebrow": "Offre du moment",
+      "title": "Des solutions de développement prêtes à accélérer votre business",
+      "description": "Web, mobile et automatisation IA pour lancer plus vite, avec une option SaaS pour les équipes qui veulent scaler en continu.",
+      "services": {
+        "web": {
+          "title": "Web sur-mesure",
+          "description": "Apps Next.js, e-commerce et plateformes métier."
+        },
+        "mobile": {
+          "title": "Apps mobiles",
+          "description": "iOS & Android fluides, design natif et perf."
+        },
+        "automation": {
+          "title": "IA & n8n",
+          "description": "Chatbots, workflows et gains opérationnels."
+        }
+      },
+      "saas": {
+        "badge": "Offre du moment",
+        "title": "Site Vitrine Essentiel",
+        "description": "Parfait pour démarrer votre présence en ligne",
+        "price": "2000 DH",
+        "features": [
+          "Entre 1-2 semaines",
+          "5 pages complètes (landing page)",
+          "Design responsive mobile/tablette/desktop",
+          "SEO de base (meta tags, sitemap XML)",
+          "Hébergement 1 an inclus + nom de domaine",
+          "Formation administration 2h"
+        ],
+        "cta": "Découvrir l'offre"
+      }
+    },
+    "marketplace": {
+      "eyebrow": "Nos services",
+      "title": "Tous nos services",
+      "description": "Explorez nos expertises comme une marketplace premium : choisissez, comparez, lancez.",
+      "explore": "Explorer",
+      "prev": "Services précédents",
+      "next": "Services suivants"
+    },
+    "websiteShowcase": {
+      "title": "Créez un site web adapté à votre entreprise",
+      "urlBar": "bestcrea.com",
+      "posterAlt": "Aperçu d'un site Bestcrea",
+      "videoLabel": "Démonstration vidéo Bestcrea",
+      "play": "Lecture",
+      "pause": "Pause"
+    },
+    "presentation": {
+      "eyebrow": "Notre méthode",
+      "title": "Une présentation claire de votre futur produit",
+      "description": "De l'idée au livrable, nous orchestrons design, code et automatisation avec une narration visuelle forte.",
+      "step1": {
+        "title": "Cadrage & vision",
+        "description": "Objectifs business, parcours utilisateurs et priorités produit."
+      },
+      "step2": {
+        "title": "Design & prototype",
+        "description": "Interfaces premium, motion et validation rapide."
+      },
+      "step3": {
+        "title": "Build & scale",
+        "description": "Développement robuste, QA et déploiement continu."
+      }
+    },
+    "why": {
+      "eyebrow": "Différence Bestcrea",
+      "title": "Pourquoi choisir Bestcrea",
+      "description": "Une agence pensée pour la vitesse, la qualité et l'impact mesurable.",
+      "items": {
+        "speed": {
+          "title": "Time-to-market",
+          "description": "Sprints serrés et livraisons continues pour sortir plus vite."
+        },
+        "quality": {
+          "title": "Qualité premium",
+          "description": "Code propre, design soigné et standards accessibilité."
+        },
+        "stack": {
+          "title": "Stack moderne",
+          "description": "Next.js, TypeScript, Prisma et automatisations n8n."
+        },
+        "automation": {
+          "title": "IA utile",
+          "description": "Chatbots et workflows qui réduisent le travail manuel."
+        },
+        "performance": {
+          "title": "Perf & SEO",
+          "description": "Core Web Vitals, SEO technique et conversion."
+        },
+        "support": {
+          "title": "Support humain",
+          "description": "Un interlocuteur dédié, de la conception au run."
+        }
+      }
+    },
+    "founder": {
+      "eyebrow": "Fondateur",
+      "name": "Marouan Bahtit",
+      "role": "Fondateur & Directeur Général de Bestcrea",
+      "bio": "Développe des applications web et mobiles depuis 2007. A occupé des fonctions administratives à l'Université Mohammed V de Rabat. Spécialisé dans les solutions numériques, les sites web modernes et les applications web/mobiles. Également Directeur Général de la Fondation.",
+      "presentationBody": "Bestcrea est une agence digitale basée à Khemisset. Nous concevons des produits web et mobiles premium, des plateformes SaaS et des automatisations intelligentes pour des équipes ambitieuses en Afrique, Europe et Moyen-Orient.",
+      "since": "Depuis",
+      "techStackTitle": "Langages & technologies",
+      "qualityGuarantee": "Garantie de la meilleure qualité"
+    },
+    "pricing": {
+      "eyebrow": "Packs",
+      "title": "Choisissez l'offre adaptée à votre ambition",
+      "description": "Trois offres web prêtes à lancer pour le marché marocain — CMS, SEO local ou Google Ads.",
+      "popular": "Plus populaire",
+      "includes": "Inclus",
+      "vsPrevious": "Par rapport à « {name} »",
+      "added": "En plus",
+      "removed": "En moins",
+      "notIncluded": "Non inclus",
+      "compareTitle": "Comparez les packs en détail",
+      "compareDescription": "Voyez d'un coup d'œil ce qui est inclus dans chaque offre.",
+      "feature": "Fonctionnalité",
+      "yes": "Inclus",
+      "no": "Non inclus",
+      "save": "Économisez {amount} DH",
+      "cta": "Découvrir l'offre"
+    },
+    "domain": {
+      "eyebrow": "Domaines",
+      "title": "Vérifiez la disponibilité de votre nom de domaine",
+      "description": "Recherche RDAP en temps réel pour savoir si votre domaine est libre.",
+      "label": "Nom de domaine",
+      "placeholder": "Tapez le nom de domaine souhaité",
+      "cta": "Vérifier",
+      "available": "{domain} est disponible.",
+      "unavailable": "{domain} est déjà enregistré.",
+      "errorNetwork": "Erreur réseau. Réessayez.",
+      "errorGeneric": "Impossible de vérifier ce domaine."
+    },
+    "differentiators": {
+      "eyebrow": "Pourquoi Bestcrea",
+      "title": "Des différenciateurs qui changent la donne",
+      "description": "Au-delà d'une agence : un partenaire produit orienté résultats.",
+      "items": {
+        "focus": {
+          "title": "Focus business",
+          "description": "Chaque décision design/tech sert un KPI concret."
+        },
+        "craft": {
+          "title": "Craft premium",
+          "description": "Interfaces soignées, motion fluide, code maintenable."
+        },
+        "ownership": {
+          "title": "Ownership total",
+          "description": "Vous gardez le contrôle : code, data, infra."
+        },
+        "impact": {
+          "title": "Impact mesurable",
+          "description": "Reporting clair sur performance, conversion et ROI."
+        }
+      }
+    },
+    "worldClientele": {
+      "title": "Clientèle mondiale",
+      "aboutEyebrow": "À propos",
+      "welcome": "Bienvenue chez",
+      "brand": "Bestcrea.",
+      "aboutBody": "Agence digitale basée à Rabat, Maroc. Nous concevons des expériences web, mobiles et SaaS pour des marques ambitieuses — en Afrique, en Europe et au Moyen-Orient.",
+      "tagB2c": "B2C",
+      "tagB2b": "B2B",
+      "tagMarketplace": "Marketplace",
+      "mapLabel": "Présence mondiale Bestcrea",
+      "rabat": "Rabat",
+      "reachEyebrow": "Portée internationale",
+      "clientsTitle": "Nos clients",
+      "clientsLine": "Retailers, marques et équipes produit",
+      "clientsInCountries": "sont basés dans <accent>{count}</accent> <underline>pays</underline>",
+      "countries": {
+        "france": "France",
+        "morocco": "Maroc",
+        "usa": "États-Unis",
+        "uk": "Royaume-Uni",
+        "uae": "Émirats arabes unis",
+        "thailand": "Thaïlande",
+        "canada": "Canada",
+        "germany": "Allemagne",
+        "italy": "Italie",
+        "spain": "Espagne",
+        "qatar": "Qatar",
+        "saudiArabia": "Arabie saoudite"
+      }
+    },
+    "whyClientsChoose": {
+      "title": "Pourquoi les clients choisissent Bestcrea",
+      "cta": "Découvrir nos services",
+      "panels": {
+        "web": {
+          "title": "Des sites web qui convertissent",
+          "description": "Des sites web sur-mesure, rapides et évolutifs, pensés pour convertir vos visiteurs en clients. Chaque ligne de code est optimisée pour la performance et la sécurité."
+        },
+        "app": {
+          "title": "Des applications mobiles fluides",
+          "description": "Des applications mobiles natives et fluides, conçues pour offrir une expérience utilisateur exceptionnelle sur iOS et Android, du prototype au déploiement."
+        },
+        "seo": {
+          "title": "Un SEO qui génère des résultats",
+          "description": "Une stratégie SEO complète pour propulser votre visibilité sur Google, générer du trafic qualifié et transformer les recherches en opportunités business réelles."
+        }
+      }
+    },
+    "impact": {
+      "eyebrow": "Impact mesurable",
+      "title": "Des résultats qui parlent",
+      "description": "Des chiffres animés au scroll — la preuve de notre exécution.",
+      "items": {
+        "clients": "Clients accompagnés",
+        "projects": "Projets livrés",
+        "roi": "ROI moyen constaté",
+        "countries": "Pays couverts"
+      }
+    },
+    "process": {
+      "eyebrow": "Process",
+      "title": "Un process en 5 étapes",
+      "description": "De l'analyse au support, un parcours clair et maîtrisé.",
+      "steps": {
+        "analysis": {
+          "title": "Analyse",
+          "description": "Cadrage, audits et priorisation."
+        },
+        "design": {
+          "title": "Design",
+          "description": "UX/UI, prototypes et validation."
+        },
+        "development": {
+          "title": "Développement",
+          "description": "Build robuste et itératif."
+        },
+        "delivery": {
+          "title": "Livraison",
+          "description": "QA, déploiement et handoff."
+        },
+        "support": {
+          "title": "Support",
+          "description": "Run, évolutions et monitoring."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Prêt à lancer votre projet digital ?",
+      "description": "Parlons de vos objectifs — devis gratuit et réponse rapide.",
+      "cta": "Obtenir un devis gratuit"
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "items": {
+        "q1": {
+          "question": "Combien de temps dure un projet ?",
+          "answer": "Cela dépend du scope et du pack choisi. Une landing ou un site vitrine démarre en général en 2–4 semaines (Basic). Une web app / e-commerce plus avancé se situe plutôt sur 6–10 semaines (Pro). Un produit Premium (design system, automatisations, run) se déroule sur plusieurs sprints, avec une roadmap claire dès le kick-off."
+        },
+        "q2": {
+          "question": "Travaillez-vous en remote ?",
+          "answer": "Oui, 100 % remote. Nous combinons rituels asynchrones (Notion, Linear, Slack) et points sync réguliers avec un account manager dédié. Nos clients sont en Afrique, en Europe et au Moyen-Orient — les fuseaux horaires sont anticipés dans le planning."
+        },
+        "q3": {
+          "question": "Puis-je faire évoluer mon pack en cours de route ?",
+          "answer": "Absolument. Beaucoup de projets démarrent en Basic ou Pro pour valider rapidement, puis scale vers Premium dès que le produit demande plus de craft, d’intégrations ou de run. On ajuste le périmètre et le budget de façon transparente, sans casser la continuité."
+        },
+        "q4": {
+          "question": "Quelles technologies utilisez-vous ?",
+          "answer": "Notre stack cœur : Next.js, TypeScript, Prisma, PostgreSQL, Tailwind, et des automatisations n8n / IA quand c’est utile au business. Côté infra : bonnes pratiques cloud, CI/CD, monitoring. On choisit toujours des outils maintenables et adaptés à votre équipe, pas une mode technologique."
+        },
+        "q5": {
+          "question": "Le devis est-il gratuit ?",
+          "answer": "Oui. Après un brief court, vous recevez une estimation claire et sans engagement sous 24–48 h ouvrables. Pas de surprise : livrables, délais et options sont listés avant de démarrer."
+        },
+        "q6": {
+          "question": "Quels modes de paiement acceptez-vous, et existe-t-il une politique de remboursement ?",
+          "answer": "Nous acceptons virement bancaire, cartes et solutions adaptées à votre pays (EUR / MAD selon le contrat). Les projets sont en général facturés par jalons (acompte au kick-off, solde à la livraison). Les acomptes liés au travail déjà engagé ne sont pas remboursables ; en cas d’arrêt anticipé, on régularise au prorata des sprints livrés."
+        },
+        "q7": {
+          "question": "Proposez-vous des services de migration de site web ou d’assistance associée ?",
+          "answer": "Oui. Nous gérons les reprises de projet, migrations WordPress / legacy, transfers d’hébergement, continuité SEO et plans de cutover sécurisés. Un audit technique précède chaque migration pour limiter les risques et les temps d’indisponibilité."
+        },
+        "q8": {
+          "question": "À quoi ressemble votre support client, et comment puis-je vous contacter ?",
+          "answer": "Support par email, chat Bestcrea et espace client selon votre pack. Les clients Premium disposent d’un account manager et d’un SLA renforcé. Contact : contact@bestcrea.com, +212 636 499 140, ou le formulaire /contact — réponse typique sous 24–48 h ouvrables."
+        },
+        "q9": {
+          "question": "Quelles mesures de sécurité mettez-vous en place pour protéger mon site et mes données ?",
+          "answer": "HTTPS partout, principes least-privilege, secrets hors dépôt, sauvegardes, mises à jour de dépendances, et durcissement des accès (auth, rôles, environnements séparés). Pour les produits sensibles : revue des permissions, monitoring, et bonnes pratiques OWASP adaptées au stack."
+        },
+        "q10": {
+          "question": "Quel est votre processus de développement, et combien de temps faut-il en général pour terminer un projet ?",
+          "answer": "Process en 5 étapes : analyse & cadrage → design / prototypes → développement itératif → livraison & QA → support / run. Un projet Basic se clôture souvent en 2–4 semaines ; Pro en 6–10 semaines ; Premium sur plusieurs sprints avec jalons de validation. Vous avez une timeline et des démos régulières dès le départ."
+        }
+      }
+    },
+    "partners": {
+      "eyebrow": "Partenaires",
+      "title": "Les technologies et partenaires qui nous accompagnent"
+    },
+    "portfolio": {
+      "title": "Nos réalisations",
+      "description": "Une sélection de sites que nous avons conçus et développés pour nos clients.",
+      "cta": "Voir toutes nos réalisations",
+      "allCategories": "Tous"
+    }
+  },
+  "Admin": {
+    "title": "Administration",
+    "description": "Espace d'administration Bestcrea"
+  },
+  "PromoTopBar": {
+    "message": "Créez un site web avec Bestcrea —",
+    "cta": "Demander un devis",
+    "close": "Fermer la bannière"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "agency": "Agence",
+    "resources": "Ressources",
+    "contact": "Contact",
+    "clientSpace": "Espace Client",
+    "login": "Connexion",
+    "register": "Inscription",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "servicesMegaTitle": "Nos expertises",
+    "servicesMegaSubtitle": "Neuf catégories pour accélérer votre croissance digitale.",
+    "resourcesMegaTitle": "Ressources",
+    "resourcesMegaSubtitle": "Inspiration, réalisations et accompagnement.",
+    "webDevelopment": "Web Development",
+    "webDevelopmentDesc": "Sites et apps web performants et scalables.",
+    "mobileApps": "Mobile Apps",
+    "mobileAppsDesc": "Applications iOS & Android natives ou hybrides.",
+    "saas": "SaaS",
+    "saasDesc": "Produits SaaS, abonnements et dashboards.",
+    "wordpress": "WordPress",
+    "wordpressDesc": "Thèmes premium, WooCommerce et maintenance.",
+    "migration": "Migration",
+    "migrationDesc": "Reprises de projets, refontes et transfers sécurisés.",
+    "aiAutomation": "AI & Automation",
+    "aiAutomationDesc": "n8n, chatbots et automatisations intelligentes.",
+    "uiux": "UI/UX",
+    "uiuxDesc": "Design systems, prototypes et expériences fluides.",
+    "seo": "SEO",
+    "seoDesc": "Référencement technique et contenu qui convertit.",
+    "hostingDomain": "Hosting & Domain",
+    "hostingDomainDesc": "Hébergement, domaines et infrastructure.",
+    "stories": "Stories",
+    "storiesDesc": "Récits clients et coulisses de projets.",
+    "portfolio": "Nos réalisations",
+    "portfolioDesc": "Sélection de projets livrés avec impact.",
+    "quote": "Demande de devis",
+    "quoteDesc": "Obtenez une estimation personnalisée.",
+    "support": "Aide & Support",
+    "supportDesc": "Centre d'aide et assistance dédiée.",
+    "blog": "Blog",
+    "blogDesc": "Veille, guides et insights digitaux.",
+    "language": "Langue",
+    "aiAssistant": "Assistant IA",
+    "domainSearchCta": "Rechercher",
+    "domainSearchHint": "Vérifiez la disponibilité de votre domaine en temps réel.",
+    "groupBuild": "Créer & développer",
+    "groupGrow": "IA & croissance",
+    "groupInfra": "Infra & migration",
+    "groupDiscover": "Découvrir",
+    "groupEngage": "Agir",
+    "promoServicesEyebrow": "Pack Premium",
+    "promoServicesTitle": "Le pack complet pour scaler sans friction",
+    "promoServicesDesc": "Design, build, automatisation et run — un account manager dédié.",
+    "promoServicesCta": "Demander un devis",
+    "promoResourcesEyebrow": "Blog",
+    "promoResourcesTitle": "Insights pour accélérer vos projets",
+    "promoResourcesDesc": "Guides, coulisses produit et tendances digitales.",
+    "promoResourcesCta": "Lire le blog",
+    "viewAllServices": "Voir tous les services",
+    "viewAllResources": "Voir toutes les ressources",
+    "tarifs": "Tarifs",
+    "tarifsDesc": "Découvrez nos packs et leurs tarifs.",
+    "affiliation": "Affiliation",
+    "affiliationDesc": "Devenez partenaire et recommandez Bestcrea.",
+    "paiement": "Moyens de paiement",
+    "paiementDesc": "Les options de paiement disponibles.",
+    "technologie": "Technologie",
+    "technologieDesc": "Les outils et technologies que nous utilisons.",
+    "presse": "Salle de presse",
+    "presseDesc": "Actualités et ressources presse.",
+    "api": "API",
+    "apiDesc": "Nos intégrations et API pour développeurs.",
+    "groupInfo": "Ressources techniques",
+    "dataAnalytics": "Data Analytics",
+    "dataAnalyticsDesc": "Dashboards et data intelligence.",
+    "cybersecurity": "Cybersécurité",
+    "cybersecurityDesc": "Audits, pentests et durcissement.",
+    "geolocation": "Géolocalisation",
+    "geolocationDesc": "Cartographie et tracking temps réel.",
+    "produits": "Produits & Abonnements SaaS",
+    "produitsDesc": "Bientôt disponible : logiciels et abonnements en libre-service.",
+    "groupAdvanced": "Data & sécurité",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Recevez nos actualités et offres.",
+    "temoignages": "Témoignages",
+    "temoignagesDesc": "Avis et retours de nos clients.",
+    "checkDomain": "Vérifier un domaine",
+    "checkDomainDesc": "Vérifiez la disponibilité d'un nom de domaine."
+  },
+  "Footer": {
+    "description": "Agence digitale premium : design, développement, SaaS et automatisation pour des marques ambitieuses.",
+    "quickLinks": "Liens rapides",
+    "services": "Services",
+    "resources": "Ressources",
+    "contact": "Contact",
+    "newsletter": "Newsletter",
+    "newsletterCopy": "Recevez nos insights, offres et lancements produit.",
+    "emailPlaceholder": "Votre email",
+    "subscribe": "S'abonner",
+    "phone": "+212 636 499 140",
+    "email": "contact@bestcrea.com",
+    "address": "305 Rue Mohamed Zerktouni, Khemisset, Maroc",
+    "rights": "Tous droits réservés.",
+    "legalIds": "ICE 003333972000017 · IF 53861111",
+    "social": "Réseaux sociaux",
+    "home": "Accueil",
+    "agency": "Agence",
+    "contactLink": "Contact",
+    "clientSpace": "Espace Client",
+    "paymentMethods": "Moyens de paiement",
+    "privacyPolicy": "Politique de confidentialité",
+    "iceLabel": "ICE",
+    "iceNumber": "003333972000017",
+    "ifLabel": "IF",
+    "ifNumber": "53861111"
+  },
+  "Pages": {
+    "services": {
+      "eyebrow": "Services",
+      "indexTitle": "Neuf expertises pour accélérer votre croissance",
+      "indexDescription": "Chaque catégorie est alimentée depuis notre base Services — contenu vivant, pas de pages figées.",
+      "explore": "Explorer",
+      "overview": "Vue d'ensemble",
+      "cta": "Demander un devis",
+      "asideTitle": "Parlons de votre projet",
+      "asideCopy": "Brief en 15 minutes, estimation claire, roadmap réaliste.",
+      "contactCta": "Contacter Bestcrea",
+      "technologiesTitle": "Technologies utilisées",
+      "expertiseTitle": "Notre savoir-faire",
+      "expertiseDescription": "Ce que nous maîtrisons pour construire les meilleures fonctionnalités de ce service.",
+      "processTitle": "Notre processus",
+      "processDescription": "Une méthode éprouvée, en cinq étapes, pour livrer un résultat fiable.",
+      "process": {
+        "discovery": {
+          "title": "Découverte & cadrage",
+          "description": "Nous analysons vos besoins, vos utilisateurs et vos contraintes pour cadrer le projet."
+        },
+        "design": {
+          "title": "Conception",
+          "description": "Wireframes, maquettes et architecture technique validés avec vous avant le développement."
+        },
+        "development": {
+          "title": "Développement",
+          "description": "Développement itératif avec des points d'étape réguliers et un code de qualité."
+        },
+        "testing": {
+          "title": "Tests & assurance qualité",
+          "description": "Tests fonctionnels, de performance et de sécurité avant chaque mise en production."
+        },
+        "launch": {
+          "title": "Livraison & mise en ligne",
+          "description": "Déploiement, formation et documentation pour une prise en main sereine."
+        }
+      },
+      "supportTitle": "Notre stratégie d'accompagnement",
+      "supportDescription": "Livrer n'est que le début : voici comment nous restons à vos côtés après le lancement.",
+      "support": {
+        "technical": {
+          "title": "Support technique",
+          "description": "Une équipe disponible pour répondre à vos questions et résoudre les incidents rapidement."
+        },
+        "maintenance": {
+          "title": "Maintenance évolutive",
+          "description": "Mises à jour de sécurité, corrections et petites évolutions incluses selon votre formule."
+        },
+        "training": {
+          "title": "Formation & documentation",
+          "description": "Vos équipes sont formées et disposent d'une documentation claire pour être autonomes."
+        },
+        "monitoring": {
+          "title": "Suivi de performance",
+          "description": "Nous surveillons la performance et vous proposons des recommandations d'amélioration continue."
+        }
+      },
+      "pricingTitle": "Nos formules",
+      "pricingDescription": "Trois formules adaptées à la taille et aux ambitions de votre projet. Tarifs indicatifs, devis personnalisé sur demande.",
+      "pricing": {
+        "startingFrom": "à partir de",
+        "perMonth": "/mois",
+        "perYear": "/an",
+        "cta": "Demander ce devis",
+        "economique": {
+          "name": "Économique",
+          "tagline": "Pour démarrer avec un budget maîtrisé"
+        },
+        "professionnelle": {
+          "name": "Professionnelle",
+          "tagline": "Pour les entreprises en croissance"
+        },
+        "diamant": {
+          "name": "Diamant",
+          "tagline": "Pour les professionnels, PME et grands comptes"
+        },
+        "perks": {
+          "economique": [
+            "Devis clair et rapide",
+            "Livraison cadrée",
+            "Support par email"
+          ],
+          "professionnelle": [
+            "Accompagnement dédié",
+            "Points d'étape réguliers",
+            "Support prioritaire",
+            "1 révision incluse"
+          ],
+          "diamant": [
+            "Chef de projet dédié",
+            "SLA garanti",
+            "Support prioritaire 24/7",
+            "Révisions illimitées",
+            "Accompagnement stratégique"
+          ]
+        }
+      },
+      "quoteCtaTitle": "Prêt à lancer votre projet ?",
+      "quoteCtaDescription": "Parlons de vos objectifs. Nous vous répondons avec un devis clair sous 24h ouvrées.",
+      "quoteCtaButton": "Demander un devis"
+    },
+    "agency": {
+      "eyebrow": "Agence",
+      "title": "Bestcrea, l'agence digitale premium",
+      "description": "Design, développement, SaaS et automatisation pour des marques qui veulent scaler avec exigence.",
+      "cta": "Nous contacter",
+      "presentationTitle": "Présentation",
+      "presentationBody": "Bestcrea est une agence digitale basée à Khemisset. Nous concevons des produits web et mobiles premium, des plateformes SaaS et des automatisations intelligentes pour des équipes ambitieuses en Afrique, Europe et Moyen-Orient.",
+      "storyTitle": "Notre histoire",
+      "storyBody": "Tout a commencé avec une obsession : livrer des expériences digitales aussi soignées qu'efficaces. Aujourd'hui, Bestcrea accompagne startups et scale-ups de l'idée au run, avec une culture produit et une exécution sans friction.",
+      "missionTitle": "Mission",
+      "missionBody": "Transformer des idées ambitieuses en produits digitaux qui convertissent, scalent et inspirent confiance.",
+      "visionTitle": "Vision",
+      "visionBody": "Devenir la référence premium pour les marques qui veulent un partenaire digital exigeant, international et orienté résultats.",
+      "valuesTitle": "Nos valeurs",
+      "values": {
+        "excellence": {
+          "title": "Excellence",
+          "description": "Chaque pixel, chaque ligne de code, chaque process compte."
+        },
+        "transparency": {
+          "title": "Transparence",
+          "description": "Roadmaps claires, budgets explicites, feedback continu."
+        },
+        "speed": {
+          "title": "Vitesse",
+          "description": "Livrer vite sans sacrifier la qualité ni la dette technique."
+        },
+        "partnership": {
+          "title": "Partenariat",
+          "description": "Nous jouons comme une extension de votre équipe produit."
+        }
+      },
+      "teamTitle": "L'équipe",
+      "teamDescription": "Un noyau senior pluridisciplinaire : stratégie, design, engineering et growth.",
+      "team": {
+        "ceo": {
+          "name": "Amine B.",
+          "initials": "AB"
+        },
+        "design": {
+          "name": "Sara K.",
+          "initials": "SK"
+        },
+        "tech": {
+          "name": "Youssef M.",
+          "initials": "YM"
+        },
+        "growth": {
+          "name": "Lina R.",
+          "initials": "LR"
+        }
+      },
+      "historyTitle": "Notre histoire",
+      "historyDescription": "Les grandes étapes du parcours de Bestcrea.",
+      "history": {
+        "founding": {
+          "title": "Création de Bestcrea",
+          "description": "Naissance du projet avec l'ambition de créer des expériences digitales sur mesure."
+        },
+        "firstClients": {
+          "title": "Premiers projets",
+          "description": "Accompagnement des premières marques dans leur transformation digitale."
+        },
+        "structuring": {
+          "title": "Structuration de l'agence",
+          "description": "Mise en place de nos méthodes de travail et de notre équipe pluridisciplinaire."
+        },
+        "today": {
+          "title": "Aujourd'hui",
+          "description": "Une agence reconnue pour ses sites web, applications et solutions SaaS sur mesure."
+        }
+      }
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Parlons de votre prochain produit",
+      "description": "Écrivez-nous : nous répondons sous 24–48h ouvrables.",
+      "infoTitle": "Coordonnées",
+      "emailLabel": "Email",
+      "phoneLabel": "Téléphone",
+      "addressLabel": "Adresse",
+      "address": "305 Rue Mohamed Zerktouni, Khemisset, Maroc",
+      "mapTitle": "Carte Bestcrea — Khemisset",
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "company": "Société",
+      "message": "Message",
+      "submit": "Envoyer",
+      "sending": "Envoi…",
+      "success": "Merci ! Votre message a bien été envoyé.",
+      "error": "Une erreur est survenue. Réessayez.",
+      "homeLabel": "Accueil",
+      "heroCta": "Discuter sur WhatsApp",
+      "help": {
+        "title": "Comment pouvons-nous vous aider ?",
+        "subtitle": "Choisissez le sujet qui correspond le mieux à votre besoin.",
+        "cards": {
+          "devis": {
+            "title": "Demander un devis",
+            "description": "Décrivez votre projet et recevez une proposition sous 24–48h."
+          },
+          "espaceClient": {
+            "title": "Espace client",
+            "description": "Suivez vos projets, factures et documents en un clic."
+          },
+          "support": {
+            "title": "Support technique",
+            "description": "Une question sur un site déjà livré ? Notre équipe répond rapidement."
+          },
+          "ressources": {
+            "title": "Centre de ressources",
+            "description": "Guides, FAQ et bonnes pratiques pour votre présence en ligne."
+          },
+          "blog": {
+            "title": "Blog & actualités",
+            "description": "Nos conseils et retours d'expérience sur le web et le digital."
+          },
+          "carrieres": {
+            "title": "Carrières",
+            "description": "Rejoignez une équipe passionnée par le digital."
+          }
+        }
+      },
+      "formSectionTitle": "Formulaire de contact",
+      "formSectionSubtitle": "Remplissez ce formulaire, nous revenons vers vous sous 24–48h ouvrables.",
+      "mapSectionTitle": "Cartes"
+    },
+    "domaine": {
+      "title": "Vérifiez la disponibilité de votre nom de domaine",
+      "description": "Recherche RDAP en temps réel pour savoir si votre domaine est libre."
+    },
+    "resources": {
+      "eyebrow": "Ressources",
+      "title": "Inspiration, preuves et accompagnement",
+      "description": "Stories, réalisations, devis, support et blog — tout pour avancer avec Bestcrea.",
+      "stories": {
+        "title": "Stories",
+        "description": "Récits clients et coulisses de projets.",
+        "eyebrow": "Stories",
+        "items": {
+          "0": {
+            "title": "Du brief à un SaaS en 90 jours",
+            "body": "Une scale-up fintech avait besoin d'un MVP crédible. Nous avons livré design system, app Next.js et onboarding automatisé — go-live en trois mois."
+          },
+          "1": {
+            "title": "Migration WordPress sans downtime",
+            "body": "Refonte e-commerce avec bascule progressive, SEO préservé et performances Core Web Vitals au vert dès J+1."
+          },
+          "2": {
+            "title": "Leads + n8n : +40 % de qualification",
+            "body": "Workflows de scoring, routing CRM et relances intelligentes pour une équipe sales débordée."
+          }
+        },
+        "storiesTitle": "Récits clients",
+        "serviceTypesTitle": "Nos types de services",
+        "serviceTypesDescription": "Un aperçu de toutes nos expertises, du web au mobile en passant par la cybersécurité.",
+        "reviewsTitle": "Avis clients",
+        "reviewsDescription": "Ce que disent nos clients sur notre fiche Google Business.",
+        "reviewsLabel": "avis Google",
+        "reviewCountLabel": "avis",
+        "translatedByGoogle": "Avis traduit par Google",
+        "reviewsSource": "Avis vérifiés, issus de la fiche Google Business de Bestcrea."
+      },
+      "realisations": {
+        "title": "Nos réalisations",
+        "description": "Sélection de projets livrés avec impact.",
+        "eyebrow": "Portfolio",
+        "cta": "Lancer mon projet",
+        "items": {
+          "0": {
+            "title": "Plateforme SaaS B2B",
+            "category": "SaaS",
+            "body": "Dashboard multi-tenant, billing et analytics pour une équipe produit européenne."
+          },
+          "1": {
+            "title": "App mobile marketplace",
+            "category": "Mobile",
+            "body": "iOS & Android, UX fluide et sync temps réel avec le back-office."
+          },
+          "2": {
+            "title": "Site corporate + SEO",
+            "category": "Web & SEO",
+            "body": "Refonte, contenu structuré et gain de trafic organique en 4 mois."
+          },
+          "3": {
+            "title": "Automatisation ops",
+            "category": "AI & Automation",
+            "body": "Chaîne n8n + IA pour support, facturation et reporting hebdo."
+          }
+        },
+        "websitesTitle": "Sites que nous avons développés",
+        "websitesDescription": "Un aperçu en direct de projets livrés par Bestcrea."
+      },
+      "devis": {
+        "title": "Demande de devis",
+        "description": "Décrivez votre besoin : estimation claire sous 24–48h.",
+        "eyebrow": "Devis",
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "company": "Société",
+        "service": "Service concerné",
+        "servicePlaceholder": "Choisir un service",
+        "budget": "Budget estimé",
+        "budgetPlaceholder": "Sélectionner une fourchette",
+        "message": "Décrivez votre projet",
+        "submit": "Envoyer ma demande",
+        "sending": "Envoi…",
+        "success": "Demande reçue. Nous vous recontactons rapidement.",
+        "error": "Impossible d'envoyer. Réessayez.",
+        "city": "Ville",
+        "address": "Adresse",
+        "isCompany": "Cette demande concerne une entreprise",
+        "ice": "ICE",
+        "rc": "RC (facultatif)"
+      },
+      "aide": {
+        "title": "Aide & Support",
+        "description": "Réponses rapides et contact dédié.",
+        "eyebrow": "Support",
+        "cta": "Contacter le support",
+        "faqs": {
+          "0": {
+            "q": "Comment démarrer un projet ?",
+            "a": "Remplissez le formulaire devis ou contact — un call de cadrage suit sous 48h."
+          },
+          "1": {
+            "q": "Quels sont vos délais moyens ?",
+            "a": "Landing : 2–4 semaines. Produit SaaS MVP : 8–12 semaines selon le scope."
+          },
+          "2": {
+            "q": "Proposez-vous de la maintenance ?",
+            "a": "Oui, via nos packs SaaS / Hosting avec monitoring et évolutions continues."
+          },
+          "3": {
+            "q": "Travaillez-vous à l'international ?",
+            "a": "Oui — FR, EN, AR, ES, DE. Équipes et clients sur plusieurs fuseaux."
+          }
+        },
+        "bannerTitle": "Besoin d'aide ?",
+        "bannerSubtitle": "Assistance 24h/7j",
+        "bannerDescription": "Notre équipe est disponible à tout moment pour répondre à vos questions techniques ou commerciales, où que vous soyez.",
+        "bannerCta": "Contacter l'assistance"
+      },
+      "blog": {
+        "title": "Blog",
+        "description": "Veille, guides et insights digitaux.",
+        "eyebrow": "Blog",
+        "readMore": "Lire l'article",
+        "back": "Retour au blog",
+        "empty": "Aucun article publié pour le moment."
+      },
+      "affiliation": {
+        "eyebrow": "Affiliation",
+        "title": "Devenez partenaire Bestcrea",
+        "description": "Recommandez nos services et développons ensemble votre activité.",
+        "howTitle": "Comment ça marche",
+        "howBody": "Remplissez le formulaire ci-contre, notre équipe étudie votre profil et revient vers vous pour définir ensemble les modalités du partenariat.",
+        "benefits": [
+          "Un interlocuteur dédié pour chaque recommandation",
+          "Un suivi transparent de vos apports",
+          "Des conditions discutées au cas par cas"
+        ],
+        "form": {
+          "name": "Nom",
+          "email": "Email",
+          "website": "Site web / Réseaux sociaux",
+          "websitePlaceholder": "https://…",
+          "message": "Parlez-nous de vous",
+          "messagePlaceholder": "Votre audience, votre activité…",
+          "submit": "Envoyer ma candidature",
+          "sending": "Envoi…",
+          "success": "Merci ! Nous revenons vers vous rapidement.",
+          "error": "Une erreur est survenue. Réessayez."
+        }
+      },
+      "tarifs": {
+        "eyebrow": "Tarifs",
+        "title": "Nos tarifs",
+        "description": "Des packs clairs, sans surprise, adaptés à chaque étape de votre projet."
+      },
+      "paiement": {
+        "eyebrow": "Paiement",
+        "title": "Moyens de paiement",
+        "description": "Les options de paiement disponibles pour nos clients.",
+        "processTitle": "Comment nous travaillons",
+        "processDescription": "Un processus clair, en quatre étapes, du premier échange à la livraison finale.",
+        "process": {
+          "quote": {
+            "title": "Devis",
+            "description": "Nous échangeons sur votre projet et vous envoyons un devis détaillé."
+          },
+          "mission": {
+            "title": "Lettre de mission",
+            "description": "Après validation du devis, nous rédigeons une lettre de mission précisant le déroulement du projet et les éléments requis de votre côté."
+          },
+          "contract": {
+            "title": "Contrat & délai",
+            "description": "Le contrat signé fixe le délai de réalisation et les modalités convenues."
+          },
+          "delivery": {
+            "title": "Livraison",
+            "description": "Le projet est livré selon le planning défini, avec accompagnement à la mise en ligne."
+          }
+        },
+        "scheduleTitle": "Échéancier de paiement",
+        "scheduleDescription": "Le règlement est échelonné en trois versements, au fil de l'avancement du projet.",
+        "schedule": {
+          "deposit": {
+            "percent": "50%",
+            "label": "À la commande",
+            "description": "Versés à la signature du contrat, pour lancer le projet."
+          },
+          "milestone": {
+            "percent": "25%",
+            "label": "En cours de projet",
+            "description": "Versés à une étape clé définie dans la lettre de mission."
+          },
+          "final": {
+            "percent": "25%",
+            "label": "À la livraison",
+            "description": "Versés à la livraison finale du projet."
+          }
+        },
+        "localTitle": "Moyens de paiement au Maroc",
+        "localDescription": "Nous acceptons les règlements via les plateformes suivantes.",
+        "internationalTitle": "Clients internationaux",
+        "internationalDescription": "Pour nos clients à l'étranger, nous utilisons des services de virement international."
+      },
+      "technologie": {
+        "eyebrow": "Technologie",
+        "title": "Notre stack technologique",
+        "description": "Les outils et frameworks que nous utilisons pour construire vos projets."
+      },
+      "presse": {
+        "eyebrow": "Presse",
+        "title": "Salle de presse",
+        "description": "Actualités, communiqués et ressources presse Bestcrea."
+      },
+      "api": {
+        "eyebrow": "Développeurs",
+        "title": "API Bestcrea",
+        "description": "Nos intégrations et notre API pour les développeurs."
+      },
+      "comingSoon": {
+        "title": "Contenu à venir",
+        "description": "Cette page est en cours de préparation. Contactez-nous pour toute question en attendant.",
+        "cta": "Nous contacter"
+      },
+      "produits": {
+        "eyebrow": "Produits",
+        "title": "Produits & Abonnements SaaS",
+        "description": "Bientôt disponible : une boutique de logiciels et d'abonnements SaaS en libre-service."
+      },
+      "privacy": {
+        "eyebrow": "Légal",
+        "title": "Politique de confidentialité",
+        "description": "Comment Bestcrea collecte, utilise et protège vos données personnelles.",
+        "note": "La version française de cette politique fait foi. Toute version traduite est fournie à titre informatif uniquement.",
+        "lastRevisedLabel": "Dernière mise à jour",
+        "lastRevisedDate": "1er octobre 2026",
+        "tocTitle": "Sommaire",
+        "sections": {
+          "intro": {
+            "title": "1. Introduction",
+            "body": "Bestcrea (\"nous\", \"notre\"), agence digitale basée à Khemisset, Maroc, accorde une grande importance à la protection de vos données personnelles. Cette politique explique quelles données nous collectons sur notre site bestcrea.com et nos services, pourquoi, et comment vous pouvez exercer vos droits."
+          },
+          "collecte": {
+            "title": "2. Données que nous collectons",
+            "body": "Nous collectons les informations que vous nous fournissez directement (nom, email, téléphone, entreprise) via nos formulaires de contact, devis ou espace client, ainsi que des données techniques collectées automatiquement (adresse IP, type de navigateur, pages visitées) à des fins statistiques."
+          },
+          "finalites": {
+            "title": "3. Finalités du traitement",
+            "body": "Vos données sont utilisées pour répondre à vos demandes de devis ou de contact, gérer votre espace client et vos projets, vous envoyer des informations si vous y avez consenti (newsletter), et améliorer notre site et nos services."
+          },
+          "base": {
+            "title": "4. Base légale et consentement",
+            "body": "Le traitement de vos données repose sur votre consentement (formulaires, newsletter), l'exécution d'un contrat (prestations de services) ou notre intérêt légitime à faire fonctionner et améliorer notre site, conformément à la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel."
+          },
+          "partage": {
+            "title": "5. Partage des données",
+            "body": "Nous ne vendons jamais vos données. Elles peuvent être partagées avec des prestataires techniques de confiance (hébergement, paiement, emailing) strictement nécessaires à la fourniture de nos services, soumis à des obligations de confidentialité, ou si la loi nous y oblige."
+          },
+          "cookies": {
+            "title": "6. Cookies",
+            "body": "Notre site utilise des cookies essentiels au fonctionnement du site et, avec votre consentement, des cookies de mesure d'audience. Vous pouvez gérer vos préférences à tout moment depuis les paramètres de votre navigateur."
+          },
+          "securite": {
+            "title": "7. Sécurité des données",
+            "body": "Nous mettons en œuvre des mesures techniques et organisationnelles raisonnables (connexions chiffrées, accès restreint, hébergement sécurisé) pour protéger vos données contre tout accès non autorisé, perte ou altération."
+          },
+          "conservation": {
+            "title": "8. Durée de conservation",
+            "body": "Vos données sont conservées pendant la durée nécessaire aux finalités pour lesquelles elles ont été collectées (durée de la relation commerciale, puis délai légal de conservation comptable et fiscale), puis supprimées ou anonymisées."
+          },
+          "droits": {
+            "title": "9. Vos droits",
+            "body": "Conformément à la loi 09-08, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition concernant vos données personnelles. Pour exercer ces droits, contactez-nous à contact@bestcrea.com."
+          },
+          "transferts": {
+            "title": "10. Transferts internationaux",
+            "body": "Certains de nos prestataires techniques (hébergement, outils SaaS) peuvent être situés hors du Maroc. Dans ce cas, nous veillons à ce que des garanties appropriées encadrent le transfert de vos données."
+          },
+          "modifications": {
+            "title": "11. Modifications de cette politique",
+            "body": "Nous pouvons mettre à jour cette politique de confidentialité pour refléter des évolutions légales ou de nos pratiques. La date de dernière mise à jour est indiquée en haut de cette page."
+          },
+          "contact": {
+            "title": "12. Contact",
+            "body": "Pour toute question relative à cette politique ou à vos données personnelles, contactez-nous à contact@bestcrea.com ou au +212 636 499 140."
+          }
+        }
+      },
+      "newsletter": {
+        "eyebrow": "Newsletter",
+        "title": "Abonnez-vous à notre newsletter",
+        "description": "Recevez nos actualités, nos offres et nos lancements de produits directement dans votre boîte mail.",
+        "benefits": {
+          "insights": "Conseils & tendances",
+          "offers": "Offres exclusives",
+          "launches": "Nouveautés en avant-première"
+        },
+        "emailPlaceholder": "Votre email",
+        "subscribe": "S'abonner",
+        "subscribed": "Merci !",
+        "loading": "Envoi...",
+        "error": "Une erreur est survenue, réessayez.",
+        "privacyNote": "En vous abonnant, vous acceptez notre politique de confidentialité. Désabonnement possible à tout moment."
+      },
+      "temoignages": {
+        "eyebrow": "Témoignages",
+        "title": "Ce que disent nos clients",
+        "description": "Des retours authentiques, issus de notre fiche Google Business, sur nos projets web, mobiles et d'automatisation au Maroc et à l'international.",
+        "reviewCountLabel": "avis",
+        "leaveReviewCta": "Laisser un avis",
+        "contactTitle": "Vous aussi, lancez votre projet",
+        "contactDescription": "Rejoignez nos clients satisfaits : demandez un devis gratuit et sans engagement.",
+        "contactCta": "Demander un devis"
+      },
+      "checkDomain": {
+        "eyebrow": "Domaines",
+        "title": "Vérifier un domaine",
+        "description": "Entrez le nom de domaine qui vous intéresse pour vérifier s'il est encore disponible, puis demandez-nous de l'enregistrer pour vous.",
+        "inputPlaceholder": "exemple.com",
+        "checkButton": "Vérifier",
+        "available": "Ce domaine semble disponible.",
+        "unavailable": "Ce domaine semble déjà pris.",
+        "errorInvalid": "Veuillez entrer un nom de domaine valide (ex: monsite.ma).",
+        "ctaRegister": "Enregistrer ce domaine",
+        "disclaimer": "Vérification indicative basée sur la résolution DNS ; la disponibilité exacte sera confirmée lors de l'enregistrement."
+      }
+    }
+  },
+  "ClientPortal": {
+    "brandSuffix": "Espace Client",
+    "hello": "Bonjour {name}",
+    "nav": {
+      "dashboard": "Dashboard",
+      "quotes": "Devis",
+      "purchaseOrders": "Bons de commande",
+      "deliveryNotes": "Bons de livraison",
+      "projects": "Projets",
+      "invoices": "Factures",
+      "support": "Support",
+      "logout": "Déconnexion"
+    },
+    "auth": {
+      "loginTitle": "Connexion",
+      "loginDescription": "Accédez à vos projets, factures et tickets.",
+      "registerTitle": "Créer un compte",
+      "registerDescription": "Inscription client Bestcrea — rôle client.",
+      "email": "Email",
+      "password": "Mot de passe",
+      "name": "Nom",
+      "company": "Société",
+      "phone": "Téléphone",
+      "signIn": "Se connecter",
+      "signingIn": "Connexion…",
+      "register": "S'inscrire",
+      "registering": "Inscription…",
+      "noAccount": "Pas encore de compte ?",
+      "registerLink": "Créer un compte",
+      "hasAccount": "Déjà inscrit ?",
+      "loginLink": "Se connecter",
+      "loginError": "Email ou mot de passe incorrect.",
+      "registerError": "Impossible de créer le compte.",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "address": "Adresse",
+      "city": "Ville",
+      "legalStatus": "Statut juridique",
+      "legalStatusPlaceholder": "Sélectionner un statut",
+      "optional": "facultatif",
+      "passwordHint": "8 caractères minimum, avec une lettre et un chiffre.",
+      "confirmPassword": "Confirmer",
+      "passwordMismatch": "Les mots de passe ne correspondent pas.",
+      "acceptPrefix": "J'accepte la",
+      "privacy": "politique de confidentialité",
+      "termsRequired": "Veuillez accepter la politique de confidentialité.",
+      "isCompany": "Je suis une entreprise",
+      "showPassword": "Afficher le mot de passe",
+      "panelLoginTitle": "Bon retour parmi nous",
+      "panelLoginText": "Suivez vos devis, commandes et factures en un seul endroit.",
+      "panelRegisterTitle": "Créer votre compte",
+      "panelRegisterText": "Commencez à gérer vos projets dès aujourd'hui.",
+      "fullName": "Nom complet",
+      "or": "ou",
+      "phoneHint": "Numéro sans le 0 initial",
+      "stepAccount": "Compte",
+      "stepContact": "Coordonnées",
+      "stepProfile": "Profil",
+      "next": "Continuer",
+      "back": "Retour",
+      "stepOf": "Étape {current} sur {total}"
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "description": "Résumé de vos projets, factures et demandes de support.",
+      "stats": {
+        "projects": "Projets",
+        "invoices": "Factures",
+        "tickets": "Tickets ouverts",
+        "active": "{count} actifs",
+        "unpaid": "{count} à régler",
+        "openTickets": "en cours"
+      },
+      "recentProjects": "Projets récents",
+      "recentInvoices": "Factures récentes",
+      "seeAll": "Tout voir",
+      "noProjects": "Aucun projet pour le moment.",
+      "noInvoices": "Aucune facture pour le moment."
+    },
+    "projects": {
+      "title": "Mes projets",
+      "description": "Suivi des jalons et de la progression.",
+      "empty": "Aucun projet associé à votre compte.",
+      "progress": "Progression",
+      "milestones": "Jalons",
+      "noMilestones": "Aucun jalon défini.",
+      "due": "Échéance",
+      "back": "Retour aux projets"
+    },
+    "invoices": {
+      "title": "Mes factures",
+      "description": "Historique et téléchargement PDF.",
+      "empty": "Aucune facture disponible.",
+      "downloadPdf": "PDF"
+    },
+    "support": {
+      "title": "Aide & Support",
+      "description": "Description",
+      "myTickets": "Mes tickets",
+      "empty": "Aucun ticket pour le moment.",
+      "newTicket": "Nouveau ticket",
+      "subject": "Sujet",
+      "priority": "Priorité",
+      "priorities": {
+        "low": "Basse",
+        "medium": "Moyenne",
+        "high": "Haute",
+        "urgent": "Urgente"
+      },
+      "submit": "Envoyer",
+      "sending": "Envoi…",
+      "error": "Impossible de créer le ticket."
+    }
+  },
+  "Chat": {
+    "open": "Chat With AI",
+    "close": "Fermer",
+    "title": "Assistant Bestcrea",
+    "subtitle": "Réponses en français · devis & services",
+    "welcome": "Bonjour ! Je suis l'assistant Bestcrea. Comment puis-je vous aider aujourd'hui ?",
+    "placeholder": "Écrivez votre message…",
+    "namePlaceholder": "Nom (optionnel)",
+    "emailPlaceholder": "Email (optionnel)",
+    "typing": "L'assistant écrit…",
+    "error": "Désolé, une erreur est survenue. Réessayez.",
+    "rotate1": "Bonjour l'ami",
+    "rotate2": "Je vais vous aider",
+    "save": "Vous économisez",
+    "agentTitle": "Agent Bestcrea",
+    "agentSubtitle": "Conseils, offres et devis · 24/7",
+    "welcomeTitle": "Besoin d'aide pour votre projet ?",
+    "guideTitle": "Trouver mon offre idéale",
+    "guideText": "Dites-moi votre besoin, je vous recommande le pack adapté.",
+    "explore": "ou explorez",
+    "s1": "Quel pack choisir pour mon activité ?",
+    "s2": "Combien coûte un site web ?",
+    "s3": "Comment vérifier un nom de domaine ?",
+    "s4": "Quels sont vos délais de livraison ?",
+    "question": "Question",
+    "skip": "Passer",
+    "q1": "Que souhaitez-vous réaliser ?",
+    "o1": "Un site vitrine pour mon activité",
+    "o2": "Être trouvé sur Google (SEO local)",
+    "o3": "Générer des demandes avec Google Ads",
+    "o4": "Une boutique, une app mobile ou un SaaS",
+    "q2": "Quel est votre budget ?",
+    "b1": "Moins de 3 000 DH",
+    "b2": "3 000 – 6 000 DH",
+    "b3": "6 000 – 10 000 DH",
+    "b4": "Plus de 10 000 DH",
+    "allSet": "C'est noté, merci.",
+    "pick": "Le choix de l'agent",
+    "useThis": "Choisir cette offre",
+    "orOthers": "Ou l'une de celles-ci",
+    "customQuote": "Demander un devis personnalisé",
+    "customNote": "Pour ce type de projet, un devis sur mesure est le plus adapté.",
+    "human": "Parler à un conseiller",
+    "humanDone": "Un conseiller Bestcrea a été prévenu et vous répondra très vite. Vous pouvez aussi nous écrire sur WhatsApp.",
+    "newChat": "Nouvelle conversation",
+    "minimize": "Réduire",
+    "disclaimer": "L'IA peut se tromper. Vérifiez les informations importantes.",
+    "recoIntro": "D'après vos réponses, voici l'offre que je vous recommande :",
+    "recoCustomIntro": "D'après vos réponses, je vous conseille un devis sur mesure.",
+    "seeAll": "Voir toutes les offres"
+  }
+}
