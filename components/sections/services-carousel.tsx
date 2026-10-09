@@ -3,6 +3,7 @@
 import { useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Service3DScene } from "@/components/sections/service-3d-scene";
 
@@ -154,7 +155,17 @@ export function ServicesCarousel({
                     "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]"
                   )}
                 >
-                  <Service3DScene slug={item.slug} />
+                  {item.imageSrc ? (
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.title}
+                      fill
+                      sizes="272px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <Service3DScene slug={item.slug} />
+                  )}
                 </div>
               </div>
             </Link>
