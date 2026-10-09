@@ -120,3 +120,12 @@
     opacity: 0;
   }
 }
+
+/* Service cards — 3D scenes (pure CSS, GPU transforms only) */
+@keyframes svc3d-spin { from { transform: rotateX(-22deg) rotateY(0deg); } to { transform: rotateX(-22deg) rotateY(360deg); } }
+@keyframes svc3d-float { 0%, 100% { transform: translateY(-4px); } 50% { transform: translateY(6px); } }
+@keyframes svc3d-orbit { from { transform: rotateZ(0deg); } to { transform: rotateZ(360deg); } }
+@keyframes svc3d-pulse { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: .9; transform: scale(1.08); } }
+@media (prefers-reduced-motion: reduce) {
+  .svc3d-anim, .svc3d-anim * { animation: none !important; }
+}

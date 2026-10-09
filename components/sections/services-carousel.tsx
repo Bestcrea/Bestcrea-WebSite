@@ -1,10 +1,10 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { Service3DScene } from "@/components/sections/service-3d-scene";
 
 export type ServiceCarouselItem = {
   key: string;
@@ -154,26 +154,7 @@ export function ServicesCarousel({
                     "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]"
                   )}
                 >
-                  {item.imageSrc ? (
-                    <Image
-                      src={item.imageSrc}
-                      alt=""
-                      fill
-                      sizes="272px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  ) : (
-                    <div
-                      className={cn(
-                        "absolute inset-0 grid place-items-center text-sm font-medium",
-                        featured
-                          ? "text-accent-foreground/50"
-                          : "text-primary-foreground/40"
-                      )}
-                    >
-                      Bestcrea
-                    </div>
-                  )}
+                  <Service3DScene slug={item.slug} />
                 </div>
               </div>
             </Link>
