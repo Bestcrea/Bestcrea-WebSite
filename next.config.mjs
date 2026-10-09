@@ -9,7 +9,8 @@ const nextConfig = {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
   images: {
-    formats: ["image/avif", "image/webp"],
+    // AVIF désactivé : atténue GHSA-2xp9-vwfh-vxw4 (RCE de l'optimiseur d'images Next 14 avec fichiers AVIF).
+    formats: ["image/webp"],
     remotePatterns: [
       {
         protocol: "https",
