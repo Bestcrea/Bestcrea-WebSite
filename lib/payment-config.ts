@@ -54,7 +54,7 @@ export function getPaymentOptions(): PaymentOption[] {
       label: "Cash Plus",
       logo: "/images/payment-methods/cash-plus.jpeg",
       kind: "transfer",
-      instructions: [...lines("PAYMENT_CASHPLUS", "Bénéficiaire : MR MAROUAN BAHTIT | Téléphone : 0636499140"), "Saisissez ensuite le numéro de transaction (référence) ou joignez le reçu."],
+      instructions: [...lines("PAYMENT_CASHPLUS", "Bénéficiaire : Mr. Marouan Bahtit | Téléphone : 0636499140"), "Saisissez ensuite le numéro de transaction (référence) ou joignez le reçu."],
     },
     {
       id: "western_union",
@@ -65,7 +65,7 @@ export function getPaymentOptions(): PaymentOption[] {
         url: whatsappLink("Bonjour Bestcrea, je souhaite payer ma commande par Western Union. Pouvez-vous m'envoyer les informations de paiement ?"),
         label: "Demander les informations de paiement via WhatsApp",
       },
-      instructions: [`Bénéficiaire : ${beneficiary}`, "Cliquez sur le bouton ci-dessous : nous vous envoyons les informations de paiement sur WhatsApp.", "Après l'envoi, indiquez la référence du transfert (optionnel) ou joignez le reçu."],
+      instructions: [...lines("PAYMENT_TRANSFER_DETAILS", "Bénéficiaire : Mr. Marouan Bahtit | Téléphone : 0636499140 | Pays : Maroc"), "Besoin d'autres informations ? Demandez-les via WhatsApp.", "Après l'envoi, indiquez la référence du transfert (MTCN / numéro) ou joignez le reçu."],
     },
     {
       id: "ria",
@@ -76,7 +76,7 @@ export function getPaymentOptions(): PaymentOption[] {
         url: whatsappLink("Bonjour Bestcrea, je souhaite payer ma commande par RIA. Pouvez-vous m'envoyer les informations de paiement ?"),
         label: "Demander les informations de paiement via WhatsApp",
       },
-      instructions: [`Bénéficiaire : ${beneficiary}`, "Cliquez sur le bouton ci-dessous : nous vous envoyons les informations de paiement sur WhatsApp.", "Après l'envoi, indiquez la référence du transfert (optionnel) ou joignez le reçu."],
+      instructions: [...lines("PAYMENT_TRANSFER_DETAILS", "Bénéficiaire : Mr. Marouan Bahtit | Téléphone : 0636499140 | Pays : Maroc"), "Besoin d'autres informations ? Demandez-les via WhatsApp.", "Après l'envoi, indiquez la référence du transfert (MTCN / numéro) ou joignez le reçu."],
     },
   ];
   if (paypalEnabled()) {

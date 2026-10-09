@@ -95,6 +95,9 @@ export default async function ClientOrderPage({ params, searchParams }: Props) {
             paymentStatus={payment.status}
             instructions={option.instructions}
             whatsapp={option.whatsapp}
+            logo={option.logo}
+            label={option.label}
+            amount={`${money(order.total)} ${order.currency}`}
             paypalFlow={option.kind === "paypal"}
             currentReference={payment.reference}
             hasProof={!!payment.proofPath}

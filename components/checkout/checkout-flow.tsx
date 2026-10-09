@@ -4,12 +4,12 @@ import { FormEvent, Suspense, useState } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { Check, ChevronLeft, Loader2, MessageCircle, ShieldCheck, Tag, Upload } from "lucide-react";
+import { Check, ChevronLeft, Loader2, ShieldCheck, Tag, Upload } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { RegisterForm } from "@/components/client/register-form";
 import { LoginForm } from "@/components/client/login-form";
-import { PaymentDetails } from "@/components/checkout/payment-details";
+import { PaymentCard } from "@/components/checkout/payment-details";
 import type { PaymentOption } from "@/lib/payment-config";
 import type { CartPricing } from "@/lib/checkout";
 
@@ -233,36 +233,48 @@ export function CheckoutFlow({ authed, userName, plan, basePricing, options }: P
               <h1 className="text-2xl font-semibold text-neutral-900">Choisissez votre mode de paiement</h1>
               <p className="text-sm text-neutral-600">Connecté en tant que <strong>{userName}</strong>.</p>
 
-              <div className="space-y-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 {options.map((o) => (
-                  <label key={o.id} className={cn("flex cursor-pointer items-center gap-4 rounded-2xl border bg-white p-4 transition", method === o.id ? "border-[#7A35FF] ring-2 ring-[#7A35FF]/20" : "hover:border-neutral-300")}>
-                    <input type="radio" name="method" value={o.id} checked={method === o.id} onChange={() => setMethod(o.id)} className="h-4 w-4 accent-[#7A35FF]" />
-                    <span className="relative h-8 w-14 shrink-0">
-                      <Image src={o.logo} alt="" fill sizes="56px" className="object-contain" />
+                  <button
+                    key={o.id}
+                    type="button"
+                    onClick={() => setMethod(o.id)}
+                    aria-pressed={method === o.id}
+                    className={cn(
+                      "relative flex items-center gap-3 rounded-2xl border bg-white p-4 text-start transition",
+                      method === o.id ? "border-[#7A35FF] ring-2 ring-[#7A35FF]/20" : "hover:border-neutral-300 hover:shadow-sm"
+                    )}
+                  >
+                    <span className="relative h-10 w-16 shrink-0">
+                      <Image src={o.logo} alt="" fill sizes="64px" className="object-contain" />
                     </span>
-                    <span className="font-medium text-neutral-900">{o.label}</span>
-                  </label>
+                    <span className="text-sm font-medium text-neutral-900">{o.label}</span>
+                    {method === o.id ? (
+                      <span className="absolute end-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-[#7A35FF] text-white">
+                        <Check className="h-3 w-3" strokeWidth={3} />
+                      </span>
+                    ) : null}
+                  </button>
                 ))}
               </div>
 
               {selected ? (
-                <div className="rounded-2xl border bg-white p-5">
-                  <PaymentDetails lines={selected.instructions} />
-                  {selected.whatsapp ? (
-                    <a href={selected.whatsapp.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
-                      <MessageCircle className="h-4 w-4" /> {selected.whatsapp.label}
-                    </a>
-                  ) : null}
-
+                <PaymentCard
+                  logo={selected.logo}
+                  label={selected.label}
+                  amount={`${fmt(pricing.total)} ${plan.currency}`}
+                  lines={selected.instructions}
+                  whatsapp={selected.whatsapp}
+                >
                   {selected.kind !== "paypal" ? (
-                    <div className="mt-5 grid gap-3 border-t pt-5 sm:grid-cols-2">
+                    <div className="grid gap-3 sm:grid-cols-2">
                       <label className="block text-xs font-medium text-neutral-600">
                         Référence du paiement {selected.kind === "transfer" ? "*" : "(optionnel, vous pouvez l'ajouter plus tard)"}
-                        <input value={reference} onChange={(e) => setReference(e.target.value)} maxLength={120} className="mt-1 w-full rounded-xl border px-3 py-2 text-sm" />
+                        <input value={reference} onChange={(e) => setReference(e.target.value)} maxLength={120} className="mt-1 w-full rounded-xl border px-3 py-2.5 text-sm" />
                       </label>
                       <label className="block text-xs font-medium text-neutral-600">
                         Justificatif (PDF, JPG, PNG — 5 Mo max)
-                        <span className="mt-1 flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-3 py-2 text-sm text-neutral-600 hover:border-[#7A35FF]">
+                        <span className="mt-1 flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-3 py-2.5 text-sm text-neutral-600 hover:border-[#7A35FF]">
                           <Upload className="h-4 w-4" /> {file ? file.name : "Choisir un fichier"}
                           <input type="file" accept="application/pdf,image/png,image/jpeg" className="hidden" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
                         </span>
@@ -271,13 +283,14 @@ export function CheckoutFlow({ authed, userName, plan, basePricing, options }: P
                         Votre commande est créée tout de suite ; elle est confirmée dès que notre équipe a vérifié votre paiement.
                       </p>
                     </div>
-                  ) : null}
-
+                  ) : (
+                    <p className="text-sm text-neutral-600">Vous serez redirigé vers PayPal pour finaliser le paiement.</p>
+                  )}
                   <label className="mt-4 block text-xs font-medium text-neutral-600">
                     Remarque (optionnel)
                     <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} maxLength={1000} className="mt-1 w-full rounded-xl border px-3 py-2 text-sm" />
                   </label>
-                </div>
+                </PaymentCard>
               ) : (
                 <p className="text-sm text-neutral-600">Aucun moyen de paiement n&apos;est disponible pour le moment.</p>
               )}

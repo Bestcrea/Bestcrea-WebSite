@@ -2,8 +2,8 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Loader2, MessageCircle, Upload } from "lucide-react";
-import { PaymentDetails } from "@/components/checkout/payment-details";
+import { Loader2, Upload } from "lucide-react";
+import { PaymentCard } from "@/components/checkout/payment-details";
 import { Button } from "@/components/ui/button";
 
 type Props = {
@@ -12,6 +12,9 @@ type Props = {
   paymentStatus: string;
   instructions: string[];
   whatsapp?: { url: string; label: string };
+  logo: string;
+  label: string;
+  amount: string;
   /** True only for the automatic PayPal checkout (API keys configured). */
   paypalFlow?: boolean;
   currentReference: string | null;
@@ -21,7 +24,7 @@ type Props = {
 };
 
 /** Pending-payment actions on a client's order: PayPal return/retry, reference + proof upload. */
-export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, whatsapp, paypalFlow, currentReference, hasProof, paymentId, locale }: Props) {
+export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, whatsapp, logo, label, amount, paypalFlow, currentReference, hasProof, paymentId, locale }: Props) {
   const router = useRouter();
   const params = useSearchParams();
   const [reference, setReference] = useState(currentReference ?? "");
@@ -83,21 +86,13 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
   }
 
   return (
-    <div className="space-y-4 rounded-2xl border border-primary/10 bg-background p-5">
-      <h2 className="font-semibold text-primary">Paiement</h2>
-      <PaymentDetails lines={instructions} />
-      {whatsapp ? (
-        <a href={whatsapp.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
-          <MessageCircle className="h-4 w-4" /> {whatsapp.label}
-        </a>
-      ) : null}
-
+    <PaymentCard logo={logo} label={label} amount={amount} lines={instructions} whatsapp={whatsapp}>
       {paypalFlow ? (
         <Button variant="accent" onClick={retryPaypal} disabled={busy}>
           {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null} Payer avec PayPal
         </Button>
       ) : (
-        <form onSubmit={submitProof} className="grid gap-3 border-t pt-4 sm:grid-cols-2">
+        <form onSubmit={submitProof} className="grid gap-3 sm:grid-cols-2">
           <label className="block text-xs font-medium text-muted-foreground">
             Référence du paiement
             <input value={reference} onChange={(e) => setReference(e.target.value)} maxLength={120} className="mt-1 w-full rounded-xl border px-3 py-2 text-sm" />
@@ -117,7 +112,7 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
           </div>
         </form>
       )}
-      {message ? <p className={message.ok ? "text-sm text-emerald-700" : "text-sm text-red-600"}>{message.text}</p> : null}
-    </div>
+      {message ? <p className={message.ok ? "mt-3 text-sm text-emerald-700" : "mt-3 text-sm text-red-600"}>{message.text}</p> : null}
+    </PaymentCard>
   );
 }

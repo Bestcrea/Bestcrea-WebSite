@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Check, Copy, Share2 } from "lucide-react";
+import Image from "next/image";
+import { useState, type ReactNode } from "react";
+import { Check, Copy, MessageCircle, Share2 } from "lucide-react";
 
 type Row = { label: string; value: string };
 
@@ -105,6 +106,76 @@ export function PaymentDetails({ lines }: { lines: string[] }) {
           ))}
         </ul>
       ) : null}
+    </div>
+  );
+}
+
+
+/** Elegant payment panel: method header + amount, step 1 (pay), step 2 (send proof — children). */
+export function PaymentCard({
+  logo,
+  label,
+  amount,
+  lines,
+  whatsapp,
+  children,
+}: {
+  logo: string;
+  label: string;
+  amount?: string;
+  lines: string[];
+  whatsapp?: { url: string; label: string };
+  children?: ReactNode;
+}) {
+  return (
+    <div className="overflow-hidden rounded-3xl border bg-white shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-[#7A35FF] to-[#9B5CFF] px-5 py-4 text-white sm:px-6">
+        <div className="flex items-center gap-3">
+          <span className="relative h-11 w-16 shrink-0 rounded-xl bg-white p-1.5">
+            <Image src={logo} alt="" fill sizes="64px" className="object-contain p-1" />
+          </span>
+          <div>
+            <p className="text-xs text-white/75">Mode de paiement</p>
+            <p className="font-semibold leading-tight">{label}</p>
+          </div>
+        </div>
+        {amount ? (
+          <div className="text-end">
+            <p className="text-xs text-white/75">Montant à payer</p>
+            <p className="text-xl font-bold leading-tight">{amount}</p>
+          </div>
+        ) : null}
+      </div>
+
+      <div className="space-y-6 p-5 sm:p-6">
+        <section>
+          <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-neutral-900">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#7A35FF] text-xs text-white">1</span>
+            Effectuez le paiement
+          </h3>
+          <PaymentDetails lines={lines} />
+          {whatsapp ? (
+            <a
+              href={whatsapp.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90 sm:w-auto"
+            >
+              <MessageCircle className="h-4 w-4" /> {whatsapp.label}
+            </a>
+          ) : null}
+        </section>
+
+        {children ? (
+          <section className="border-t pt-6">
+            <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-neutral-900">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#7A35FF] text-xs text-white">2</span>
+              Envoyez votre justificatif
+            </h3>
+            {children}
+          </section>
+        ) : null}
+      </div>
     </div>
   );
 }
