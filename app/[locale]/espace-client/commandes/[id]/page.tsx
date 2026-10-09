@@ -7,7 +7,7 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { dateFmt, money } from "@/lib/format";
 import { getPaymentOptions } from "@/lib/payment-config";
-import { StatusBadge } from "@/components/admin/status-badge";
+import { StatusPill as StatusBadge } from "@/components/client/status-pill";
 import { Button } from "@/components/ui/button";
 import { OrderPaymentPanel } from "@/components/client/order-payment-panel";
 

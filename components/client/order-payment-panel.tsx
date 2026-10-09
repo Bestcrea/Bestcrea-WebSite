@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Loader2, Upload } from "lucide-react";
 import { PaymentCard } from "@/components/checkout/payment-details";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,7 @@ type Props = {
 
 /** Pending-payment actions on a client's order: PayPal return/retry, reference + proof upload. */
 export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions, whatsapp, logo, label, amount, paypalFlow, currentReference, hasProof, paymentId, locale }: Props) {
+  const t = useTranslations("Payment");
   const router = useRouter();
   const params = useSearchParams();
   const [reference, setReference] = useState(currentReference ?? "");
@@ -46,12 +48,12 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
     })
       .then(async (r) => ({ ok: r.ok, data: (await r.json().catch(() => null)) as { error?: string } | null }))
       .then(({ ok, data }) => {
-        setMessage({ ok, text: ok ? "Paiement PayPal confirmé. Merci !" : data?.error || "Vérification impossible." });
+        setMessage({ ok, text: ok ? t("paypalOk") : data?.error || t("verifyError") });
         router.replace(`/espace-client/commandes/${orderId}`);
         router.refresh();
       })
       .finally(() => setBusy(false));
-  }, [params, method, orderId, paymentStatus, router]);
+  }, [params, method, orderId, paymentStatus, router, paypalFlow, t]);
 
   async function retryPaypal() {
     setBusy(true);
@@ -66,7 +68,7 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
       return;
     }
     setBusy(false);
-    setMessage({ ok: false, text: data?.error || "Erreur PayPal." });
+    setMessage({ ok: false, text: data?.error || t("paypalError") });
   }
 
   async function submitProof(e: FormEvent) {
@@ -79,9 +81,9 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
     const res = await fetch(`/api/checkout/orders/${orderId}/proof`, { method: "POST", body: form });
     const data = (await res.json().catch(() => null)) as { error?: string } | null;
     setBusy(false);
-    if (!res.ok) return setMessage({ ok: false, text: data?.error || "Erreur" });
+    if (!res.ok) return setMessage({ ok: false, text: data?.error || t("error") });
     setFile(null);
-    setMessage({ ok: true, text: "Justificatif envoyé. Nous vérifions votre paiement." });
+    setMessage({ ok: true, text: t("proofSent") });
     router.refresh();
   }
 
@@ -89,25 +91,25 @@ export function OrderPaymentPanel({ orderId, method, paymentStatus, instructions
     <PaymentCard logo={logo} label={label} amount={amount} lines={instructions} whatsapp={whatsapp}>
       {paypalFlow ? (
         <Button variant="accent" onClick={retryPaypal} disabled={busy}>
-          {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null} Payer avec PayPal
+          {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null} {t("payPaypal")}
         </Button>
       ) : (
         <form onSubmit={submitProof} className="grid gap-3 sm:grid-cols-2">
           <label className="block text-xs font-medium text-muted-foreground">
-            Référence du paiement
-            <input value={reference} onChange={(e) => setReference(e.target.value)} maxLength={120} className="mt-1 w-full rounded-xl border px-3 py-2 text-sm" />
+            {t("reference")}
+            <input value={reference} onChange={(e) => setReference(e.target.value)} maxLength={120} className="mt-1 h-10 w-full rounded-lg border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none transition focus:border-[#7A35FF] focus:ring-2 focus:ring-[#7A35FF]/20" />
           </label>
           <label className="block text-xs font-medium text-muted-foreground">
-            Justificatif (PDF, JPG, PNG — 5 Mo max)
-            <span className="mt-1 flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-3 py-2 text-sm hover:border-accent">
-              <Upload className="h-4 w-4" /> {file ? file.name : hasProof ? "Remplacer le justificatif" : "Choisir un fichier"}
+            {t("proofFile")}
+            <span className="mt-1 flex cursor-pointer items-center gap-2 h-10 rounded-lg border border-dashed border-neutral-300 px-3 text-sm text-neutral-700 transition hover:border-[#7A35FF] hover:bg-[#7A35FF]/5">
+              <Upload className="h-4 w-4" /> {file ? file.name : hasProof ? t("replaceProof") : t("chooseFile")}
               <input type="file" accept="application/pdf,image/png,image/jpeg" className="hidden" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
             </span>
           </label>
           <div className="flex flex-wrap items-center gap-3 sm:col-span-2">
-            <Button type="submit" variant="accent" disabled={busy || (!file && !reference.trim())}>{busy ? "Envoi…" : "Envoyer"}</Button>
+            <Button type="submit" variant="accent" disabled={busy || (!file && !reference.trim())}>{busy ? t("sending") : t("send")}</Button>
             {hasProof && paymentId ? (
-              <a href={`/api/payments/${paymentId}/proof`} target="_blank" rel="noreferrer" className="text-sm text-accent underline">Voir mon justificatif</a>
+              <a href={`/api/payments/${paymentId}/proof`} target="_blank" rel="noreferrer" className="text-sm text-accent underline">{t("viewProof")}</a>
             ) : null}
           </div>
         </form>

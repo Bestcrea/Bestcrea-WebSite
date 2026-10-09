@@ -4,7 +4,7 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { pickLocale } from "@/lib/i18n-content";
 import { dateFmt, money } from "@/lib/format";
-import { StatusBadge } from "@/components/admin/status-badge";
+import { StatusPill as StatusBadge } from "@/components/client/status-pill";
 import { Button } from "@/components/ui/button";
 import { PortalQuoteRequestForm } from "@/components/client/quote-request-portal-form";
 import { FileSignature } from "lucide-react";

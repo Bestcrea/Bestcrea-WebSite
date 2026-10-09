@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
-import { statusLabel } from "@/components/admin/status-badge";
+import { StatusPill } from "@/components/client/status-pill";
 import { Receipt } from "lucide-react";
 import { PortalBanner } from "@/components/client/portal-banner";
 
@@ -38,14 +38,14 @@ export default async function ClientInvoicesPage(props: Props) {
                 <div>
                   <p className="font-semibold text-primary">{invoice.reference}</p>
                   <p className="text-sm text-muted-foreground">{invoice.title}</p>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-primary/50">
-                    {statusLabel(invoice.status)}
+                  <p className="mt-2 flex flex-wrap items-center gap-2 text-xs text-neutral-500">
+                    <StatusPill status={invoice.status} />
                     {Number(invoice.paidTotal) > 0 && invoice.status !== "paid"
-                      ? ` · payé ${Number(invoice.paidTotal).toFixed(2)}`
-                      : ""}
+                      ? <span>{Number(invoice.paidTotal).toFixed(2)} / {Number(invoice.totalAmount).toFixed(2)}</span>
+                      : null}
                     {invoice.issuedAt
-                      ? ` · ${new Date(invoice.issuedAt).toLocaleDateString(params.locale)}`
-                      : ""}
+                      ? <span>{new Date(invoice.issuedAt).toLocaleDateString(params.locale)}</span>
+                      : null}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">

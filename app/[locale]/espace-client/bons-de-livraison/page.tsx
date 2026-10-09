@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { dateFmt } from "@/lib/format";
-import { StatusBadge } from "@/components/admin/status-badge";
+import { StatusPill as StatusBadge } from "@/components/client/status-pill";
 import { Button } from "@/components/ui/button";
 import { Truck } from "lucide-react";
 import { PortalBanner } from "@/components/client/portal-banner";

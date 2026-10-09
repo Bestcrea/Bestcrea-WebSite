@@ -44,24 +44,24 @@ export function TicketForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-3xl border border-primary/10 bg-background p-6">
+    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
       <h2 className="text-lg font-semibold text-primary">{t("newTicket")}</h2>
-      <label className="block space-y-2 text-sm font-medium text-primary">
+      <label className="block text-sm font-medium text-neutral-800">
         <span>{t("subject")}</span>
-        <input name="subject" required className="w-full rounded-xl border border-primary/15 px-3 py-2 text-sm outline-none ring-accent focus:ring-2" />
+        <input name="subject" required className="mt-1.5 w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-[#7A35FF] focus:ring-2 focus:ring-[#7A35FF]/20" />
       </label>
-      <label className="block space-y-2 text-sm font-medium text-primary">
+      <label className="block text-sm font-medium text-neutral-800">
         <span>{t("priority")}</span>
-        <select name="priority" defaultValue="medium" className="w-full rounded-xl border border-primary/15 px-3 py-2 text-sm outline-none ring-accent focus:ring-2">
+        <select name="priority" defaultValue="medium" className="mt-1.5 w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-[#7A35FF] focus:ring-2 focus:ring-[#7A35FF]/20">
           <option value="low">{t("priorities.low")}</option>
           <option value="medium">{t("priorities.medium")}</option>
           <option value="high">{t("priorities.high")}</option>
           <option value="urgent">{t("priorities.urgent")}</option>
         </select>
       </label>
-      <label className="block space-y-2 text-sm font-medium text-primary">
+      <label className="block text-sm font-medium text-neutral-800">
         <span>{t("description")}</span>
-        <textarea name="description" required rows={4} className="w-full rounded-xl border border-primary/15 px-3 py-2 text-sm outline-none ring-accent focus:ring-2" />
+        <textarea name="description" required rows={4} className="mt-1.5 w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-[#7A35FF] focus:ring-2 focus:ring-[#7A35FF]/20" />
       </label>
       {error ? <p className="text-sm font-medium text-red-600">{error}</p> : null}
       <Button type="submit" variant="accent" disabled={status === "loading"}>

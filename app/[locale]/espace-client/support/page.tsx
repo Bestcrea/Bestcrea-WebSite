@@ -3,6 +3,7 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { TicketForm } from "@/components/client/ticket-form";
 import { LifeBuoy } from "lucide-react";
+import { StatusPill } from "@/components/client/status-pill";
 import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -48,9 +49,9 @@ export default async function ClientSupportPage(props: Props) {
                         {ticket.description}
                       </p>
                     </div>
-                    <div className="text-right text-xs uppercase tracking-wide text-primary/60">
-                      <p>{ticket.status}</p>
-                      <p className="mt-1">{ticket.priority}</p>
+                    <div className="flex flex-col items-end gap-1.5">
+                      <StatusPill status={ticket.status} />
+                      <span className="text-xs uppercase tracking-wide text-neutral-500">{ticket.priority}</span>
                     </div>
                   </div>
                 </li>

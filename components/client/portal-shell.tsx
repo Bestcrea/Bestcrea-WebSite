@@ -198,6 +198,7 @@ export function PortalShell({ userName, userEmail, unread, children }: Props) {
           </div>
 
           <div className="flex items-center gap-2">
+            <LanguageSwitcher variant="portal" className="hidden sm:block" />
             <Link
               href="/espace-client/notifications"
               aria-label={t("nav.notifications")}
@@ -231,9 +232,9 @@ export function PortalShell({ userName, userEmail, unread, children }: Props) {
                       <p className="truncate text-xs text-neutral-500">{userEmail}</p>
                     </div>
                   </div>
-                  <div className="my-2 flex items-center justify-between rounded-xl border px-3 py-2">
-                    <span className="text-xs text-neutral-500">{t("nav.language")}</span>
-                    <LanguageSwitcher variant="light" />
+                  <div className="my-2 rounded-xl border px-3 py-2.5">
+                    <span className="mb-2 block text-xs text-neutral-500">{t("nav.language")}</span>
+                    <LanguageSwitcher inline />
                   </div>
                   <Link href="/espace-client/profil" className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-neutral-50">
                     <User className="h-4 w-4" /> {t("nav.myProfile")}

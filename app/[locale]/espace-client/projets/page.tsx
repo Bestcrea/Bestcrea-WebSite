@@ -4,6 +4,7 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { pickLocale } from "@/lib/i18n-content";
 import { FolderKanban } from "lucide-react";
+import { StatusPill } from "@/components/client/status-pill";
 import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -37,9 +38,7 @@ export default async function ClientProjectsPage(props: Props) {
                 <h2 className="text-xl font-semibold text-primary">
                   {pickLocale(project.title as never, params.locale)}
                 </h2>
-                <span className="rounded-full bg-primary/5 px-2 py-1 text-xs font-medium uppercase text-primary/60">
-                  {project.status}
-                </span>
+                <StatusPill status={project.status} />
               </div>
               <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
                 {pickLocale(project.description as never, params.locale)}
