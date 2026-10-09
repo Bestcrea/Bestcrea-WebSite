@@ -3,8 +3,13 @@ import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/layout/page-hero";
 import { prisma } from "@/lib/prisma";
 import { pickLocale } from "@/lib/i18n-content";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/blog", seoKey: "blog" });
+}
 
 export default async function BlogIndexPage({ params }: Props) {
   setRequestLocale(params.locale);

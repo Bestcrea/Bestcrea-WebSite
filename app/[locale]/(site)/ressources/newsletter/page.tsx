@@ -1,10 +1,15 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/layout/page-hero";
 import { NewsletterForm } from "@/components/sections/newsletter-form";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
 
 const benefitKeys = ["insights", "offers", "launches"] as const;
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/newsletter" });
+}
 
 export default async function NewsletterPage({ params }: Props) {
   setRequestLocale(params.locale);

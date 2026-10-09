@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { AuthSessionProvider } from "@/components/providers/session-provider";
 import { requireClientSession } from "@/lib/session";
 import { ClientPortalNav } from "@/components/client/portal-nav";
+
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 type Props = {
   children: ReactNode;

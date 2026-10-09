@@ -4,8 +4,13 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import { PortfolioFilterGrid } from "@/components/sections/portfolio-filter-grid";
 import { portfolioSites } from "@/lib/portfolio-sites";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/realisations", seoKey: "realisations" });
+}
 
 export default async function RealisationsPage({ params }: Props) {
   setRequestLocale(params.locale);

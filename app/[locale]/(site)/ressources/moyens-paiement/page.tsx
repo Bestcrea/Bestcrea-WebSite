@@ -3,8 +3,13 @@ import { PageHero } from "@/components/layout/page-hero";
 import { PaymentProcess } from "@/components/sections/payment-process";
 import { PaymentSchedule } from "@/components/sections/payment-schedule";
 import { PaymentMethodsGrid } from "@/components/sections/payment-methods-grid";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/moyens-paiement", seoKey: "moyens-paiement" });
+}
 
 export default async function MoyensPaiementPage({ params }: Props) {
   setRequestLocale(params.locale);

@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/layout/page-hero";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = {
   params: { locale: string };
@@ -13,6 +14,10 @@ const links = [
   { href: "/ressources/aide-support", key: "aide" },
   { href: "/ressources/blog", key: "blog" },
 ] as const;
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources", seoKey: "ressources" });
+}
 
 export default async function RessourcesPage({ params }: Props) {
   setRequestLocale(params.locale);

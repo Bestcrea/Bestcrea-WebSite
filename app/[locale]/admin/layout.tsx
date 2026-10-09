@@ -1,9 +1,12 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { AuthSessionProvider } from "@/components/providers/session-provider";
 import { requireAdminSession } from "@/lib/admin-auth";
 import { getRolePermissions } from "@/lib/permissions";
 import { AdminSidebar } from "@/components/admin/admin-sidebar";
+
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 type Props = {
   children: ReactNode;

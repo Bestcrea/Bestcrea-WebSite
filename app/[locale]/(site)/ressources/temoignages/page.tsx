@@ -5,8 +5,13 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import { GoogleReviewsSection } from "@/components/sections/google-reviews-section";
 import { googleReviewsAverage, googleReviewsTotal } from "@/lib/google-reviews";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/temoignages" });
+}
 
 export default async function TemoignagesPage({ params }: Props) {
   setRequestLocale(params.locale);

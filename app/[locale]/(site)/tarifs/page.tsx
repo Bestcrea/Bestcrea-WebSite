@@ -1,9 +1,17 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/layout/page-hero";
+import { PricingJsonLd } from "@/components/seo/json-ld";
+import { absoluteUrl, localizedPath } from "@/lib/seo";
+import { pickLocale } from "@/lib/i18n-content";
 import { PricingPlans } from "@/components/sections/pricing-plans";
 import { prisma } from "@/lib/prisma";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "tarifs", seoKey: "tarifs" });
+}
 
 export default async function TarifsPage({ params }: Props) {
   setRequestLocale(params.locale);
@@ -32,6 +40,15 @@ export default async function TarifsPage({ params }: Props) {
   return (
     <>
       <PageHero eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
+      <PricingJsonLd
+        plans={serializedPlans.map((p) => ({
+          name: pickLocale(p.name as never, params.locale, p.slug),
+          description: pickLocale(p.description as never, params.locale),
+          price: Number(p.price),
+          currency: p.currency,
+          url: absoluteUrl(localizedPath(params.locale, `checkout?plan=${p.slug}`)),
+        }))}
+      />
       <PricingPlans plans={serializedPlans} locale={params.locale} />
     </>
   );

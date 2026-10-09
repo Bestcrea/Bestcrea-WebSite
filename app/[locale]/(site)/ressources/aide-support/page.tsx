@@ -3,8 +3,13 @@ import { LifeBuoy } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/aide-support", seoKey: "aide-support" });
+}
 
 export default async function AideSupportPage({ params }: Props) {
   setRequestLocale(params.locale);

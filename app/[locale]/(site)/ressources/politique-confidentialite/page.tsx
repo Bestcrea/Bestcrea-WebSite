@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/layout/page-hero";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
 
@@ -17,6 +18,10 @@ const sectionKeys = [
   "modifications",
   "contact",
 ] as const;
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/politique-confidentialite" });
+}
 
 export default async function PrivacyPolicyPage({ params }: Props) {
   setRequestLocale(params.locale);

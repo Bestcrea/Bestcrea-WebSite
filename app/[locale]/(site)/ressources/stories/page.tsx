@@ -7,8 +7,13 @@ import { ServiceProcess } from "@/components/sections/service-process";
 import { PaymentProcess } from "@/components/sections/payment-process";
 import { GoogleReviewsSection } from "@/components/sections/google-reviews-section";
 import { prisma } from "@/lib/prisma";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/stories" });
+}
 
 export default async function StoriesPage({ params }: Props) {
   setRequestLocale(params.locale);

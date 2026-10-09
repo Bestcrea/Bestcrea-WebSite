@@ -3,7 +3,7 @@ import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { OrganizationJsonLdBlock, WebsiteJsonLd } from "@/components/seo/json-ld";
+import { LocalBusinessJsonLd, OrganizationJsonLdBlock, WebsiteJsonLd } from "@/components/seo/json-ld";
 import { routing, isRtlLocale } from "@/i18n/routing";
 import { absoluteUrl, getPageSeo, getSiteSeoSettings, localizedPath } from "@/lib/seo";
 
@@ -42,10 +42,6 @@ export async function generateMetadata({
   const description = pageSeo?.description || settings.defaultDescription;
   const url = absoluteUrl(localizedPath(locale));
 
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, absoluteUrl(localizedPath(l))])
-  );
-
   return {
     metadataBase: new URL(absoluteUrl("/")),
     title: {
@@ -53,10 +49,6 @@ export async function generateMetadata({
       template: `%s | ${settings.siteName}`,
     },
     description,
-    alternates: {
-      canonical: url,
-      languages,
-    },
     openGraph: {
       type: "website",
       locale,
@@ -106,6 +98,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           url={absoluteUrl("/")}
         />
         <WebsiteJsonLd name={settings.siteName} url={absoluteUrl("/")} />
+        <LocalBusinessJsonLd name={settings.siteName} url={absoluteUrl("/")} description={settings.defaultDescription} />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

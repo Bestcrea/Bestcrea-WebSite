@@ -1,8 +1,13 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/layout/page-hero";
 import { AffiliationForm } from "@/components/sections/affiliation-form";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return buildPageMetadata({ locale: params.locale, path: "ressources/affiliation" });
+}
 
 export default async function AffiliationPage({ params }: Props) {
   setRequestLocale(params.locale);
