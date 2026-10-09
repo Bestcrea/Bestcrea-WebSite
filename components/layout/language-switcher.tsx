@@ -14,12 +14,18 @@ type LanguageSwitcherProps = {
   variant?: "default" | "dark" | "light" | "auth" | "portal";
   /** Render all languages as an always-visible chip list (used inside menus that clip popovers). */
   inline?: boolean;
+  /** Open the list above the button (for controls docked at the bottom of the screen). */
+  placement?: "down" | "up";
+  /** Full-width trigger (mobile menu). */
+  full?: boolean;
 };
 
 export function LanguageSwitcher({
   className,
   variant = "default",
   inline = false,
+  placement = "down",
+  full = false,
 }: LanguageSwitcherProps) {
   const t = useTranslations("Navigation");
   const locale = useLocale() as Locale;
@@ -97,7 +103,8 @@ export function LanguageSwitcher({
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          "group flex items-center gap-2 rounded-full border px-2.5 py-1.5 text-xs font-medium transition-colors",
+          "group flex items-center gap-2 border font-medium transition-colors",
+          full ? "w-full justify-between rounded-xl px-4 py-3 text-sm" : "rounded-full px-2.5 py-1.5 text-xs",
           triggerClass
         )}
       >
@@ -112,7 +119,7 @@ export function LanguageSwitcher({
       </button>
 
       {open ? (
-        <div className="absolute end-0 top-full z-50 mt-2 min-w-[11rem] overflow-hidden rounded-xl border border-primary/10 bg-background text-foreground shadow-xl shadow-primary/10">
+        <div className={cn("absolute z-50 min-w-[11rem] overflow-hidden rounded-xl border border-primary/10 bg-background text-foreground shadow-xl shadow-primary/10", full ? "inset-x-0" : "end-0", placement === "up" ? "bottom-full mb-2" : "top-full mt-2")}>
           <ul className="py-1" role="listbox" aria-label={t("language")}>
             {localesMeta.map((item) => (
               <li key={item.code}>

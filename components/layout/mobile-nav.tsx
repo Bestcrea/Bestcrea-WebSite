@@ -34,7 +34,6 @@ import {
   Star,
   Tag,
   Terminal,
-  User,
   Users,
   Wallet,
   X,
@@ -375,15 +374,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               {t("register")}
             </Link>
           </div>
-          <LanguageSwitcher inline />
-          <Link
-            href="/espace-client"
-            onClick={onClose}
-            className="flex items-center justify-center gap-2 text-sm font-semibold text-[#292D32]"
-          >
-            <User className="h-4 w-4" aria-hidden />
-            {t("clientSpace")}
-          </Link>
+          <LanguageSwitcher variant="light" placement="up" full />
         </div>
       </div>
     </>
