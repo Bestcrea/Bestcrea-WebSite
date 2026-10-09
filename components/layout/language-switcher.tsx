@@ -3,7 +3,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { localesMeta } from "@/lib/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -26,7 +25,6 @@ export function LanguageSwitcher({
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -47,7 +45,8 @@ export function LanguageSwitcher({
     if (next === locale) return;
     // Keep the current page AND its query string (e.g. ?token=… on PayPal return).
     const query: Record<string, string | string[]> = {};
-    searchParams.forEach((value, key) => {
+    // Read at click time (no useSearchParams → no Suspense/prerender constraint on every page).
+    new URLSearchParams(window.location.search).forEach((value, key) => {
       const prev = query[key];
       query[key] = prev === undefined ? value : Array.isArray(prev) ? [...prev, value] : [prev, value];
     });
