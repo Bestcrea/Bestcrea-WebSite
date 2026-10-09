@@ -7,6 +7,8 @@ import { dateFmt, money } from "@/lib/format";
 import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
 import { PortalQuoteRequestForm } from "@/components/client/quote-request-portal-form";
+import { FileSignature } from "lucide-react";
+import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -25,10 +27,7 @@ export default async function ClientQuotesPage(props: Props) {
 
   return (
     <div className="space-y-10">
-      <div>
-        <h1 className="text-3xl font-semibold text-primary">Mes devis</h1>
-        <p className="mt-2 text-muted-foreground">Consultez, acceptez ou discutez vos devis, ou demandez-en un nouveau.</p>
-      </div>
+      <PortalBanner icon={FileSignature} title="Mes devis" description="Consultez, acceptez ou discutez vos devis, ou demandez-en un nouveau." />
 
       <section className="space-y-3">
         <h2 className="text-lg font-semibold text-primary">Devis reçus</h2>

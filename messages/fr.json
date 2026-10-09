@@ -1039,7 +1039,20 @@
       "projects": "Projets",
       "invoices": "Factures",
       "support": "Support",
-      "logout": "Déconnexion"
+      "logout": "Déconnexion",
+      "orders": "Commandes",
+      "profile": "Profil",
+      "notifications": "Notifications",
+      "orderService": "Commander un service",
+      "helpTitle": "Besoin d'aide ?",
+      "helpText": "Notre équipe est prête à vous accompagner.",
+      "getHelp": "Obtenir de l'aide",
+      "myProfile": "Mon profil",
+      "collapse": "Réduire le menu",
+      "openMenu": "Ouvrir le menu",
+      "noNotifications": "Aucune notification pour le moment.",
+      "language": "Langue",
+      "viewAll": "Tout voir"
     },
     "auth": {
       "loginTitle": "Connexion",

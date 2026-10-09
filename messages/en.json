@@ -1039,7 +1039,20 @@
       "projects": "Projects",
       "invoices": "Invoices",
       "support": "Support",
-      "logout": "Log out"
+      "logout": "Log out",
+      "orders": "Orders",
+      "profile": "Profile",
+      "notifications": "Notifications",
+      "orderService": "Order a service",
+      "helpTitle": "Need help?",
+      "helpText": "Our team is ready to assist you.",
+      "getHelp": "Get help",
+      "myProfile": "My profile",
+      "collapse": "Collapse menu",
+      "openMenu": "Open menu",
+      "noNotifications": "No notifications yet.",
+      "language": "Language",
+      "viewAll": "View all"
     },
     "auth": {
       "loginTitle": "Sign in",

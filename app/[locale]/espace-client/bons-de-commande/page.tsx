@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { dateFmt, money } from "@/lib/format";
 import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
+import { ClipboardList } from "lucide-react";
+import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,10 +23,7 @@ export default async function ClientPurchaseOrdersPage(props: Props) {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-semibold text-primary">Mes bons de commande</h1>
-        <p className="mt-2 text-muted-foreground">Générés à partir de vos devis acceptés.</p>
-      </div>
+      <PortalBanner icon={ClipboardList} title="Mes bons de commande" description="Générés à partir de vos devis acceptés." />
       <div className="overflow-hidden rounded-3xl border border-primary/10 bg-background">
         {list.length === 0 ? (
           <p className="p-6 text-sm text-muted-foreground">Aucun bon de commande.</p>

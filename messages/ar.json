@@ -1039,7 +1039,20 @@
       "projects": "المشاريع",
       "invoices": "الفواتير",
       "support": "الدعم",
-      "logout": "تسجيل الخروج"
+      "logout": "تسجيل الخروج",
+      "orders": "الطلبات",
+      "profile": "الملف الشخصي",
+      "notifications": "الإشعارات",
+      "orderService": "اطلب خدمة",
+      "helpTitle": "تحتاج مساعدة؟",
+      "helpText": "فريقنا جاهز لمساعدتك.",
+      "getHelp": "احصل على مساعدة",
+      "myProfile": "ملفي الشخصي",
+      "collapse": "طي القائمة",
+      "openMenu": "فتح القائمة",
+      "noNotifications": "لا توجد إشعارات بعد.",
+      "language": "اللغة",
+      "viewAll": "عرض الكل"
     },
     "auth": {
       "loginTitle": "تسجيل الدخول",

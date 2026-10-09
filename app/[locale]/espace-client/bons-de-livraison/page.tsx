@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { dateFmt } from "@/lib/format";
 import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
+import { Truck } from "lucide-react";
+import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,10 +23,7 @@ export default async function ClientDeliveryNotesPage(props: Props) {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-semibold text-primary">Mes bons de livraison</h1>
-        <p className="mt-2 text-muted-foreground">Preuve de livraison de vos services et livrables.</p>
-      </div>
+      <PortalBanner icon={Truck} title="Mes bons de livraison" description="Preuve de livraison de vos services et livrables." />
       <div className="overflow-hidden rounded-3xl border border-primary/10 bg-background">
         {list.length === 0 ? (
           <p className="p-6 text-sm text-muted-foreground">Aucun bon de livraison.</p>

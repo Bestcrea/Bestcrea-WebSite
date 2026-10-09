@@ -2,6 +2,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { TicketForm } from "@/components/client/ticket-form";
+import { LifeBuoy } from "lucide-react";
+import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -19,10 +21,7 @@ export default async function ClientSupportPage(props: Props) {
 
   return (
     <div className="space-y-10">
-      <div>
-        <h1 className="text-3xl font-semibold text-primary">{t("title")}</h1>
-        <p className="mt-2 text-muted-foreground">{t("description")}</p>
-      </div>
+      <PortalBanner icon={LifeBuoy} title={t("title")} description={t("description")} />
 
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <TicketForm />

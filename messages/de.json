@@ -1039,7 +1039,20 @@
       "projects": "Projekte",
       "invoices": "Rechnungen",
       "support": "Support",
-      "logout": "Abmelden"
+      "logout": "Abmelden",
+      "orders": "Bestellungen",
+      "profile": "Profil",
+      "notifications": "Benachrichtigungen",
+      "orderService": "Service bestellen",
+      "helpTitle": "Brauchen Sie Hilfe?",
+      "helpText": "Unser Team unterstützt Sie gerne.",
+      "getHelp": "Hilfe erhalten",
+      "myProfile": "Mein Profil",
+      "collapse": "Menü einklappen",
+      "openMenu": "Menü öffnen",
+      "noNotifications": "Noch keine Benachrichtigungen.",
+      "language": "Sprache",
+      "viewAll": "Alle anzeigen"
     },
     "auth": {
       "loginTitle": "Anmelden",

@@ -3,6 +3,8 @@ import { Link } from "@/i18n/navigation";
 import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { pickLocale } from "@/lib/i18n-content";
+import { FolderKanban } from "lucide-react";
+import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -20,10 +22,7 @@ export default async function ClientProjectsPage(props: Props) {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-semibold text-primary">{t("title")}</h1>
-        <p className="mt-2 text-muted-foreground">{t("description")}</p>
-      </div>
+      <PortalBanner icon={FolderKanban} title={t("title")} description={t("description")} />
       <div className="grid gap-4 md:grid-cols-2">
         {projects.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("empty")}</p>

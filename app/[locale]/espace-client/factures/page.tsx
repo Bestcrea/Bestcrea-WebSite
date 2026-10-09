@@ -3,6 +3,8 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { statusLabel } from "@/components/admin/status-badge";
+import { Receipt } from "lucide-react";
+import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,10 +23,7 @@ export default async function ClientInvoicesPage(props: Props) {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-semibold text-primary">{t("title")}</h1>
-        <p className="mt-2 text-muted-foreground">{t("description")}</p>
-      </div>
+      <PortalBanner icon={Receipt} title={t("title")} description={t("description")} />
 
       <div className="overflow-hidden rounded-3xl border border-primary/10 bg-background">
         {invoices.length === 0 ? (
