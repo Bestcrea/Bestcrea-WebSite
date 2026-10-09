@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { ChevronDown, LogIn, Menu, UserPlus } from "lucide-react";
+import { ChevronDown, LogIn, Menu, User, UserPlus } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/layout/logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
@@ -16,11 +16,14 @@ import {
   servicesMegaPromo,
 } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import { useAuthState } from "@/hooks/use-auth-state";
 
 type MegaKey = "services" | "resources" | null;
 
 export function Header() {
   const t = useTranslations("Navigation");
+  const auth = useAuthState();
+  const isStaff = !!auth.role && auth.role !== "client";
   const pathname = usePathname();
   const [mega, setMega] = useState<MegaKey>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -137,22 +140,36 @@ export function Header() {
         <div className="ms-auto flex shrink-0 items-center gap-2 sm:gap-3">
           <LanguageSwitcher variant="light" className="hidden sm:block" />
 
-          <Link
-            href="/espace-client/login"
-            aria-label={t("login")}
-            title={t("login")}
-            className="hidden h-10 w-10 place-items-center rounded-full border border-black/10 text-[#292D32]/90 transition-colors hover:border-black/20 hover:bg-black/5 md:grid"
-          >
-            <LogIn className="h-[18px] w-[18px]" aria-hidden />
-          </Link>
-          <Link
-            href="/espace-client/register"
-            aria-label={t("register")}
-            title={t("register")}
-            className="hidden h-10 w-10 place-items-center rounded-full bg-[#7A35FF] text-white transition-opacity hover:opacity-90 md:grid"
-          >
-            <UserPlus className="h-[18px] w-[18px]" aria-hidden />
-          </Link>
+          {auth.loggedIn ? (
+            <Link
+              href={isStaff ? "/admin" : "/espace-client"}
+              aria-label={t("clientSpace")}
+              title={t("clientSpace")}
+              className="hidden h-10 items-center gap-2 rounded-full bg-[#7A35FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90 md:inline-flex"
+            >
+              <User className="h-[18px] w-[18px]" aria-hidden />
+              {t("clientSpace")}
+            </Link>
+          ) : auth.loaded ? (
+            <>
+              <Link
+                href="/espace-client/login"
+                aria-label={t("login")}
+                title={t("login")}
+                className="hidden h-10 w-10 place-items-center rounded-full border border-black/10 text-[#292D32]/90 transition-colors hover:border-black/20 hover:bg-black/5 md:grid"
+              >
+                <LogIn className="h-[18px] w-[18px]" aria-hidden />
+              </Link>
+              <Link
+                href="/espace-client/register"
+                aria-label={t("register")}
+                title={t("register")}
+                className="hidden h-10 w-10 place-items-center rounded-full bg-[#7A35FF] text-white transition-opacity hover:opacity-90 md:grid"
+              >
+                <UserPlus className="h-[18px] w-[18px]" aria-hidden />
+              </Link>
+            </>
+          ) : null}
 
           <button
             type="button"
@@ -192,7 +209,7 @@ export function Header() {
         ) : null}
       </div>
 
-      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} loggedIn={auth.loggedIn} isStaff={isStaff} />
     </header>
   );
 }

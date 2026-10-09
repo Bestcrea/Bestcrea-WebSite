@@ -34,6 +34,7 @@ import {
   Star,
   Tag,
   Terminal,
+  User,
   Users,
   Wallet,
   X,
@@ -92,10 +93,12 @@ type MobileLevel =
 
 type MobileNavProps = {
   open: boolean;
+  loggedIn?: boolean;
+  isStaff?: boolean;
   onClose: () => void;
 };
 
-export function MobileNav({ open, onClose }: MobileNavProps) {
+export function MobileNav({ open, onClose, loggedIn = false, isStaff = false }: MobileNavProps) {
   const t = useTranslations("Navigation");
   const tChat = useTranslations("Chat");
   const [level, setLevel] = useState<MobileLevel>({ kind: "root" });
@@ -358,22 +361,33 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               <i className="chat-dot !bg-white [animation-delay:.3s]" />
             </span>
           </button>
+          {loggedIn ? (
+            <Link
+              href={isStaff ? "/admin" : "/espace-client"}
+              onClick={onClose}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#7A35FF] px-3 py-3 text-sm font-semibold text-white"
+            >
+              <User className="h-4 w-4" aria-hidden />
+              {t("clientSpace")}
+            </Link>
+          ) : (
           <div className="grid grid-cols-2 gap-2">
-            <Link
-              href="/espace-client/login"
-              onClick={onClose}
-              className="inline-flex items-center justify-center rounded-xl border border-black/10 px-3 py-2.5 text-sm font-semibold text-[#292D32]"
-            >
-              {t("login")}
-            </Link>
-            <Link
-              href="/espace-client/register"
-              onClick={onClose}
-              className="inline-flex items-center justify-center rounded-xl bg-[#7A35FF] px-3 py-2.5 text-sm font-semibold text-white"
-            >
-              {t("register")}
-            </Link>
-          </div>
+              <Link
+                href="/espace-client/login"
+                onClick={onClose}
+                className="inline-flex items-center justify-center rounded-xl border border-black/10 px-3 py-2.5 text-sm font-semibold text-[#292D32]"
+              >
+                {t("login")}
+              </Link>
+              <Link
+                href="/espace-client/register"
+                onClick={onClose}
+                className="inline-flex items-center justify-center rounded-xl bg-[#7A35FF] px-3 py-2.5 text-sm font-semibold text-white"
+              >
+                {t("register")}
+              </Link>
+            </div>
+          )}
           <LanguageSwitcher variant="light" placement="up" full />
         </div>
       </div>
