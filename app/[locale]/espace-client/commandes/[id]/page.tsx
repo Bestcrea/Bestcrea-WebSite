@@ -11,9 +11,11 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
 import { OrderPaymentPanel } from "@/components/client/order-payment-panel";
 
-type Props = { params: { locale: string; id: string }; searchParams: { new?: string; uploadError?: string; paypalError?: string; cancelled?: string } };
+type Props = { params: Promise<{ locale: string; id: string }>; searchParams: Promise<{ new?: string; uploadError?: string; paypalError?: string; cancelled?: string }> };
 
-export default async function ClientOrderPage({ params, searchParams }: Props) {
+export default async function ClientOrderPage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireClientSession();
   if (!session) return null;

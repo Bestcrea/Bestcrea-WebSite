@@ -3,9 +3,10 @@ import { requireAdminSession } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { LeadsKanban } from "@/components/admin/leads-kanban";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function AdminLeadsPage({ params }: Props) {
+export default async function AdminLeadsPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireAdminSession();
   if (!session) return null;

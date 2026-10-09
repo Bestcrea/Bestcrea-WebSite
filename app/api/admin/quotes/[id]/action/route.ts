@@ -7,11 +7,12 @@ import { sendMail } from "@/lib/mailer";
 import { createPurchaseOrderFromQuote, duplicateQuote } from "@/lib/documents";
 import { roleCan } from "@/lib/permissions";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 const ACTIONS = ["send", "duplicate", "cancel", "expire", "create_purchase_order", "mark_pending"] as const;
 
-export async function POST(request: NextRequest, { params }: Params) {
+export async function POST(request: NextRequest, props: Params) {
+  const params = await props.params;
   const body = (await request.json().catch(() => ({}))) as { action?: string };
   const action = body.action as (typeof ACTIONS)[number];
   if (!ACTIONS.includes(action)) return NextResponse.json({ error: "Unknown action" }, { status: 400 });

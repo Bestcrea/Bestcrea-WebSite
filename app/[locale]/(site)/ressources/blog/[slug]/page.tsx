@@ -7,10 +7,11 @@ import { pickLocale } from "@/lib/i18n-content";
 import { routing } from "@/i18n/routing";
 
 type Props = {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 };
 
-export default async function BlogArticlePage({ params }: Props) {
+export default async function BlogArticlePage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
 
   const post = await prisma.blogPost.findFirst({
@@ -51,7 +52,8 @@ export default async function BlogArticlePage({ params }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   if (!routing.locales.includes(params.locale as never)) return {};
   const post = await prisma.blogPost.findFirst({
     where: { slug: params.slug, isPublished: true },

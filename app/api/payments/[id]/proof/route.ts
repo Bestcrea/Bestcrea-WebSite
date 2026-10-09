@@ -9,7 +9,8 @@ import { PROOF_MIME, readProof } from "@/lib/proof-storage";
 export const runtime = "nodejs";
 
 /** Serve a proof of payment only to its owner or to staff who may verify payments. */
-export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(_request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 

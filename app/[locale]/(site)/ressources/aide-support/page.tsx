@@ -5,13 +5,15 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
   return buildPageMetadata({ locale: params.locale, path: "ressources/aide-support", seoKey: "aide-support" });
 }
 
-export default async function AideSupportPage({ params }: Props) {
+export default async function AideSupportPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.resources.aide");
 

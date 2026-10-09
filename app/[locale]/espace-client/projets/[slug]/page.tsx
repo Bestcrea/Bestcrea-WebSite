@@ -12,9 +12,10 @@ type Milestone = {
   dueDate?: string | null;
 };
 
-type Props = { params: { locale: string; slug: string } };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export default async function ClientProjectDetailPage({ params }: Props) {
+export default async function ClientProjectDetailPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireClientSession();
   if (!session) return null;

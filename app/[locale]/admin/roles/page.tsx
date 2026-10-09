@@ -4,9 +4,10 @@ import { getRolePermissions } from "@/lib/permissions";
 import { STAFF_ROLES } from "@/lib/rbac";
 import { RolesMatrix } from "@/components/admin/roles-matrix";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function AdminRolesPage({ params }: Props) {
+export default async function AdminRolesPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("roles.manage");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

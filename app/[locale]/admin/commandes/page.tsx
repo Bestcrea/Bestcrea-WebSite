@@ -8,13 +8,15 @@ import { StatusBadge, statusLabel } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-type Props = { params: { locale: string }; searchParams: { q?: string; status?: string; payment?: string; page?: string } };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ q?: string; status?: string; payment?: string; page?: string }> };
 
 const PAGE_SIZE = 20;
 const STATUSES: OrderStatus[] = ["pending", "awaiting_payment", "payment_submitted", "payment_confirmed", "processing", "in_progress", "completed", "cancelled", "refunded"];
 const PAYMENTS: PaymentStatus[] = ["pending", "submitted", "confirmed", "failed", "refunded"];
 
-export default async function AdminOrdersPage({ params, searchParams }: Props) {
+export default async function AdminOrdersPage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("orders.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

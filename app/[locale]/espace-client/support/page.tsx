@@ -3,9 +3,10 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { TicketForm } from "@/components/client/ticket-form";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function ClientSupportPage({ params }: Props) {
+export default async function ClientSupportPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireClientSession();
   if (!session) return null;

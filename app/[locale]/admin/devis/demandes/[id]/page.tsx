@@ -9,9 +9,10 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
 import { RequestStatusForm } from "@/components/admin/request-status-form";
 
-type Props = { params: { locale: string; id: string } };
+type Props = { params: Promise<{ locale: string; id: string }> };
 
-export default async function AdminQuoteRequestPage({ params }: Props) {
+export default async function AdminQuoteRequestPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("quotes.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

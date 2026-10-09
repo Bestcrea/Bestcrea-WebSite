@@ -5,10 +5,11 @@ import { audit } from "@/lib/audit";
 import { updateQuote } from "@/lib/documents";
 import { parseCommon, parseDate } from "@/lib/doc-input";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 /** Edit a quote. Accepted quotes are locked (they are the basis of a purchase order). */
-export async function PATCH(request: NextRequest, { params }: Params) {
+export async function PATCH(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("quotes.edit");
   if (auth.error) return auth.error;
 
@@ -48,7 +49,8 @@ export async function PATCH(request: NextRequest, { params }: Params) {
 }
 
 /** Only drafts may be deleted; anything already sent is cancelled instead (kept for the records). */
-export async function DELETE(request: NextRequest, { params }: Params) {
+export async function DELETE(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("quotes.delete");
   if (auth.error) return auth.error;
 

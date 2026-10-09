@@ -10,14 +10,15 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { OrderStatusForm, PaymentVerify } from "@/components/admin/order-controls";
 import { Button } from "@/components/ui/button";
 
-type Props = { params: { locale: string; id: string } };
+type Props = { params: Promise<{ locale: string; id: string }> };
 
 const METHOD_LABELS: Record<string, string> = {
   bank_cih: "Virement CIH", bank_albarid: "Virement Al Barid Bank", bank_chaabi: "Virement Banque Populaire",
   ria: "RIA", western_union: "Western Union", cash_plus: "Cash Plus", paypal: "PayPal",
 };
 
-export default async function AdminOrderPage({ params }: Props) {
+export default async function AdminOrderPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("orders.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

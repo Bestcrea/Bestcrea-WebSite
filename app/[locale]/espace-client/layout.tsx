@@ -9,10 +9,16 @@ export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export default async function ClientPortalLayout({ children, params }: Props) {
+export default async function ClientPortalLayout(props: Props) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   setRequestLocale(params.locale);
   const session = await requireClientSession();
 

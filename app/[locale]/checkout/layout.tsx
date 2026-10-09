@@ -4,10 +4,16 @@ import { Lock } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 
-type Props = { children: ReactNode; params: { locale: string } };
+type Props = { children: ReactNode; params: Promise<{ locale: string }> };
 
 /** Distraction-free layout for checkout: logo, security hint, language switcher. */
-export default function CheckoutLayout({ children, params }: Props) {
+export default async function CheckoutLayout(props: Props) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   setRequestLocale(params.locale);
   return (
     <div className="min-h-screen bg-[#f7f7f9]">

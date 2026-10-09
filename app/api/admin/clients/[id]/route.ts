@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { audit } from "@/lib/audit";
 import { EMAIL_RE, clean, isLegalStatus, normalizeIce } from "@/lib/validators";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 type PatchBody = {
   firstName?: string;
@@ -25,7 +25,8 @@ async function findClient(id: string) {
   return prisma.user.findFirst({ where: { id, role: "client" } });
 }
 
-export async function PATCH(request: NextRequest, { params }: Params) {
+export async function PATCH(request: NextRequest, props: Params) {
+  const params = await props.params;
   const body = (await request.json().catch(() => ({}))) as PatchBody;
   const isStatusAction = body.action === "activate" || body.action === "suspend";
 
@@ -96,7 +97,8 @@ export async function PATCH(request: NextRequest, { params }: Params) {
   return NextResponse.json({ ok: true, id: updated.id });
 }
 
-export async function DELETE(request: NextRequest, { params }: Params) {
+export async function DELETE(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("clients.delete");
   if (auth.error) return auth.error;
 

@@ -10,9 +10,10 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { DocumentEditor, type EditorLine } from "@/components/admin/document-editor";
 import { DocumentActions, RecordPaymentForm, type DocAction } from "@/components/admin/document-actions";
 
-type Props = { params: { locale: string; id: string } };
+type Props = { params: Promise<{ locale: string; id: string }> };
 
-export default async function AdminInvoiceDetailPage({ params }: Props) {
+export default async function AdminInvoiceDetailPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("invoices.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

@@ -5,9 +5,11 @@ import { requirePermission } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { DocumentEditor } from "@/components/admin/document-editor";
 
-type Props = { params: { locale: string }; searchParams: { clientId?: string; requestId?: string } };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ clientId?: string; requestId?: string }> };
 
-export default async function NewQuotePage({ params, searchParams }: Props) {
+export default async function NewQuotePage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("quotes.create");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

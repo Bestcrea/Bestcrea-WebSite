@@ -3,7 +3,7 @@ import { requireAdminSession } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { SettingsForm } from "@/components/admin/settings-form";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
 const defaults = {
   seo: {
@@ -16,7 +16,8 @@ const defaults = {
   colors: { primary: "#292D32", accent: "#7A35FF", background: "#F0F2F5" },
 };
 
-export default async function AdminParametresPage({ params }: Props) {
+export default async function AdminParametresPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireAdminSession();
   if (!session) return null;

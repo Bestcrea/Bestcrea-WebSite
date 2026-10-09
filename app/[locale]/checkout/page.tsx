@@ -9,12 +9,14 @@ import { priceCart } from "@/lib/checkout";
 import { getPaymentOptions } from "@/lib/payment-config";
 import { CheckoutFlow } from "@/components/checkout/checkout-flow";
 
-type Props = { params: { locale: string }; searchParams: { plan?: string } };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ plan?: string }> };
 
 export const metadata: Metadata = { title: "Commande", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
-export default async function CheckoutPage({ params, searchParams }: Props) {
+export default async function CheckoutPage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
 
   const plan = searchParams.plan

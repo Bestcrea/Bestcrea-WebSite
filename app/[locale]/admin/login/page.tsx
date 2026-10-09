@@ -2,9 +2,10 @@ import { Suspense } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { AdminLoginForm } from "@/components/admin/admin-login-form";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default function AdminLoginPage({ params }: Props) {
+export default async function AdminLoginPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
 
   return (

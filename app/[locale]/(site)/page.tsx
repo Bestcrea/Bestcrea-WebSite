@@ -21,14 +21,16 @@ import { prisma } from "@/lib/prisma";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
   return buildPageMetadata({ locale: params.locale, path: "", seoKey: "home" });
 }
 
-export default async function HomePage({ params }: Props) {
+export default async function HomePage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
 
   const plans = await prisma.pricingPlan.findMany({

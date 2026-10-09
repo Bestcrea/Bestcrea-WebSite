@@ -9,9 +9,10 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
 import { QuoteResponse } from "@/components/client/quote-response";
 
-type Props = { params: { locale: string; id: string } };
+type Props = { params: Promise<{ locale: string; id: string }> };
 
-export default async function ClientQuoteDetailPage({ params }: Props) {
+export default async function ClientQuoteDetailPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireClientSession();
   if (!session) return null;

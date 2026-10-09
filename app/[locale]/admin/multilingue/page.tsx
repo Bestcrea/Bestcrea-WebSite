@@ -5,7 +5,7 @@ import { routing } from "@/i18n/routing";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
 const LOCALES = routing.locales;
 
@@ -23,7 +23,8 @@ function filledLocales(value: unknown): string[] {
 
 type Row = { label: string; key: string; locales: string[] };
 
-export default async function AdminMultilinguePage({ params }: Props) {
+export default async function AdminMultilinguePage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireAdminSession();
   if (!session) return null;

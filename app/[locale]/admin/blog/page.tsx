@@ -3,9 +3,10 @@ import { requireAdminSession } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { BlogManager } from "@/components/admin/blog-manager";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function AdminBlogPage({ params }: Props) {
+export default async function AdminBlogPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireAdminSession();
   if (!session) return null;

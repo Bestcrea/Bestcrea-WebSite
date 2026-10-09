@@ -3,15 +3,17 @@ import { PageHero } from "@/components/layout/page-hero";
 import { NewsletterForm } from "@/components/sections/newsletter-form";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
 const benefitKeys = ["insights", "offers", "launches"] as const;
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
   return buildPageMetadata({ locale: params.locale, path: "ressources/newsletter" });
 }
 
-export default async function NewsletterPage({ params }: Props) {
+export default async function NewsletterPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.resources.newsletter");
 

@@ -7,7 +7,8 @@ import { notifyClient } from "@/lib/notify";
 
 const STATUSES = ["new", "in_review", "quoted", "closed", "cancelled"] as const;
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const auth = await requireAdminApi("quotes.edit");
   if (auth.error) return auth.error;
   const body = (await request.json().catch(() => ({}))) as { status?: string; internalNotes?: string };

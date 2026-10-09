@@ -5,13 +5,15 @@ import { prisma } from "@/lib/prisma";
 import { pickLocale } from "@/lib/i18n-content";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
   return buildPageMetadata({ locale: params.locale, path: "ressources/blog", seoKey: "blog" });
 }
 
-export default async function BlogIndexPage({ params }: Props) {
+export default async function BlogIndexPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.resources.blog");
 

@@ -8,7 +8,8 @@ import { clean } from "@/lib/validators";
 // payment_confirmed / payment_submitted are driven by payments, never set by hand.
 const MANUAL = ["processing", "in_progress", "completed", "cancelled"] as const;
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const auth = await requireAdminApi("orders.manage");
   if (auth.error) return auth.error;
 

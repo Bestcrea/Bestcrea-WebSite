@@ -4,10 +4,11 @@ import { FounderSection } from "@/components/sections/founder-section";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   const t = await getTranslations({ locale: params.locale, namespace: "Pages.agency" });
   return buildPageMetadata({
     locale: params.locale,
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: Props) {
 const valueKeys = ["excellence", "transparency", "speed", "partnership"] as const;
 const historyKeys = ["founding", "firstClients", "structuring", "today"] as const;
 
-export default async function AgencePage({ params }: Props) {
+export default async function AgencePage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.agency");
 

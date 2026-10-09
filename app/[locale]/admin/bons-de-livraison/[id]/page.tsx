@@ -10,9 +10,10 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { DocumentActions, type DocAction } from "@/components/admin/document-actions";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-type Props = { params: { locale: string; id: string } };
+type Props = { params: Promise<{ locale: string; id: string }> };
 
-export default async function AdminDeliveryNotePage({ params }: Props) {
+export default async function AdminDeliveryNotePage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("delivery_notes.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

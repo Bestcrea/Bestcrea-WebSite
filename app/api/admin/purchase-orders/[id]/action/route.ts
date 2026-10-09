@@ -5,11 +5,12 @@ import { audit } from "@/lib/audit";
 import { notifyClient } from "@/lib/notify";
 import { createInvoice, createOrderFromPurchaseOrder, rowsToLines } from "@/lib/documents";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 const ACTIONS = ["send", "confirm", "cancel", "create_order", "create_invoice"] as const;
 
-export async function POST(request: NextRequest, { params }: Params) {
+export async function POST(request: NextRequest, props: Params) {
+  const params = await props.params;
   const body = (await request.json().catch(() => ({}))) as { action?: string };
   const action = body.action as (typeof ACTIONS)[number];
   if (!ACTIONS.includes(action)) return NextResponse.json({ error: "Unknown action" }, { status: 400 });

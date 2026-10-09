@@ -4,9 +4,10 @@ import { requireClientSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { pickLocale } from "@/lib/i18n-content";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function ClientProjectsPage({ params }: Props) {
+export default async function ClientProjectsPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireClientSession();
   if (!session) return null;

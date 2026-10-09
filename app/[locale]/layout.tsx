@@ -22,18 +22,19 @@ const arabicFont = IBM_Plex_Sans_Arabic({
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ locale: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const locale = params.locale;
   const settings = await getSiteSeoSettings();
   const pageSeo = await getPageSeo("home", locale);
@@ -69,7 +70,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({ children, params }: Props) {
+export default async function LocaleLayout(props: Props) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   const { locale } = params;
 
   if (!hasLocale(routing.locales, locale)) {

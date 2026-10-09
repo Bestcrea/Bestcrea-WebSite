@@ -5,11 +5,12 @@ import { audit } from "@/lib/audit";
 import { notifyClient } from "@/lib/notify";
 import { clean } from "@/lib/validators";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 const ACTIONS = ["send", "deliver", "cancel", "update"] as const;
 
-export async function POST(request: NextRequest, { params }: Params) {
+export async function POST(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("delivery_notes.edit");
   if (auth.error) return auth.error;
   const body = (await request.json().catch(() => ({}))) as { action?: string; notes?: string };

@@ -9,11 +9,12 @@ import { clean } from "@/lib/validators";
 import { parseDate } from "@/lib/doc-input";
 import { PaymentMethod } from "@prisma/client";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 const ACTIONS = ["send", "cancel", "duplicate", "record_payment", "mark_paid"] as const;
 
-export async function POST(request: NextRequest, { params }: Params) {
+export async function POST(request: NextRequest, props: Params) {
+  const params = await props.params;
   const body = (await request.json().catch(() => ({}))) as Record<string, unknown>;
   const action = body.action as (typeof ACTIONS)[number];
   if (!ACTIONS.includes(action)) return NextResponse.json({ error: "Unknown action" }, { status: 400 });

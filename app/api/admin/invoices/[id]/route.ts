@@ -5,10 +5,11 @@ import { audit } from "@/lib/audit";
 import { updateInvoice } from "@/lib/documents";
 import { parseCommon, parseDate } from "@/lib/doc-input";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 /** Invoices are editable only while no payment has been recorded and they are not cancelled. */
-export async function PATCH(request: NextRequest, { params }: Params) {
+export async function PATCH(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("invoices.edit");
   if (auth.error) return auth.error;
 
@@ -41,7 +42,8 @@ export async function PATCH(request: NextRequest, { params }: Params) {
   return NextResponse.json({ ok: true });
 }
 
-export async function DELETE(request: NextRequest, { params }: Params) {
+export async function DELETE(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("invoices.delete");
   if (auth.error) return auth.error;
   const invoice = await prisma.invoice.findUnique({ where: { id: params.id } });

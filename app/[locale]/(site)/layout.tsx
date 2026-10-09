@@ -6,10 +6,16 @@ import { DeferredChatWidget } from "@/components/chat/deferred-chat-widget";
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export default function SiteLayout({ children, params }: Props) {
+export default async function SiteLayout(props: Props) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   setRequestLocale(params.locale);
 
   return (

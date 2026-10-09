@@ -10,7 +10,8 @@ import { audit } from "@/lib/audit";
 export const runtime = "nodejs";
 
 /** Client submits proof of payment (+ optional reference) for THEIR order. */
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const auth = await requireClientApi();
   if (auth.error) return auth.error;
   const userId = auth.session.user.id;

@@ -19,11 +19,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-type Props = { params: { locale: string; id: string } };
+type Props = { params: Promise<{ locale: string; id: string }> };
 
 const LIMIT = 50;
 
-export default async function AdminClientDetailPage({ params }: Props) {
+export default async function AdminClientDetailPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("clients.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

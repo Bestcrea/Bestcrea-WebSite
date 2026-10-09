@@ -13,10 +13,11 @@ import { ServiceQuoteCta } from "@/components/sections/service-quote-cta";
 import { routing } from "@/i18n/routing";
 
 type Props = {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 };
 
-export default async function ServiceSlugPage({ params }: Props) {
+export default async function ServiceSlugPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
 
   const service = await prisma.service.findFirst({
@@ -100,7 +101,8 @@ export default async function ServiceSlugPage({ params }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   if (!routing.locales.includes(params.locale as never)) return {};
   const service = await prisma.service.findFirst({
     where: { slug: params.slug, isActive: true },

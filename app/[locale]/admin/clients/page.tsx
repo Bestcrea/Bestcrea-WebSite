@@ -21,8 +21,8 @@ import {
 } from "@/components/ui/table";
 
 type Props = {
-  params: { locale: string };
-  searchParams: { q?: string; status?: string; legal?: string; city?: string; sort?: string; page?: string };
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string; status?: string; legal?: string; city?: string; sort?: string; page?: string }>;
 };
 
 const PAGE_SIZE = 20;
@@ -34,7 +34,9 @@ const sorts: Record<string, Prisma.UserOrderByWithRelationInput> = {
   activity: { lastActivityAt: { sort: "desc", nulls: "last" } },
 };
 
-export default async function AdminClientsPage({ params, searchParams }: Props) {
+export default async function AdminClientsPage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("clients.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

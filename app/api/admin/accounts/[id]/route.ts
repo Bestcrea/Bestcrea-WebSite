@@ -5,13 +5,14 @@ import { audit } from "@/lib/audit";
 import { isStaffRole } from "@/lib/rbac";
 import { clean } from "@/lib/validators";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 async function activeAdminCount() {
   return prisma.user.count({ where: { role: "admin", accountStatus: "active" } });
 }
 
-export async function PATCH(request: NextRequest, { params }: Params) {
+export async function PATCH(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("users.manage");
   if (auth.error) return auth.error;
 
@@ -71,7 +72,8 @@ export async function PATCH(request: NextRequest, { params }: Params) {
   return NextResponse.json({ ok: true });
 }
 
-export async function DELETE(request: NextRequest, { params }: Params) {
+export async function DELETE(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("users.manage");
   if (auth.error) return auth.error;
 

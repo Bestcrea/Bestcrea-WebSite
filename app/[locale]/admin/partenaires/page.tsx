@@ -3,9 +3,10 @@ import { requireAdminSession } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { PartnersTestimonialsManager } from "@/components/admin/partners-manager";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function AdminPartenairesPage({ params }: Props) {
+export default async function AdminPartenairesPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireAdminSession();
   if (!session) return null;

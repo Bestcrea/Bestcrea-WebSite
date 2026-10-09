@@ -11,7 +11,7 @@ import { computeTotals } from "@/lib/totals";
 
 export const runtime = "nodejs";
 
-type Params = { params: { type: string; id: string } };
+type Params = { params: Promise<{ type: string; id: string }> };
 
 const PERMISSION: Record<string, string> = {
   quote: "quotes.view",
@@ -67,7 +67,8 @@ const toPdfLines = (rows: Parameters<typeof rowsToLines>[0]) => {
   }));
 };
 
-export async function GET(_request: NextRequest, { params }: Params) {
+export async function GET(_request: NextRequest, props: Params) {
+  const params = await props.params;
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 

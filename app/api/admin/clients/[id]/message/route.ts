@@ -6,10 +6,11 @@ import { notifyClient } from "@/lib/notify";
 import { audit } from "@/lib/audit";
 import { clean } from "@/lib/validators";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 /** Send a message to a client: in-portal notification + email. */
-export async function POST(request: NextRequest, { params }: Params) {
+export async function POST(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi("messages.view");
   if (auth.error) return auth.error;
 

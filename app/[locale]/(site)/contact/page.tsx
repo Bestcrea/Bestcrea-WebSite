@@ -6,10 +6,11 @@ import { ContactInfoTabs } from "@/components/sections/contact-info-tabs";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   const t = await getTranslations({ locale: params.locale, namespace: "Pages.contact" });
   return buildPageMetadata({
     locale: params.locale,
@@ -23,7 +24,8 @@ export async function generateMetadata({ params }: Props) {
 const MAP_EMBED =
   "https://maps.google.com/maps?q=305%20Rue%20Mohamed%20Zerktouni%2C%20Khemisset%2C%20Morocco&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
-export default async function ContactPage({ params }: Props) {
+export default async function ContactPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.contact");
 

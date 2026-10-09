@@ -10,12 +10,14 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-type Props = { params: { locale: string }; searchParams: { q?: string; status?: string; page?: string } };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ q?: string; status?: string; page?: string }> };
 
 const PAGE_SIZE = 20;
 const STATUSES: QuoteStatus[] = ["draft", "sent", "viewed", "pending", "accepted", "rejected", "expired", "cancelled"];
 
-export default async function AdminQuotesPage({ params, searchParams }: Props) {
+export default async function AdminQuotesPage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("quotes.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

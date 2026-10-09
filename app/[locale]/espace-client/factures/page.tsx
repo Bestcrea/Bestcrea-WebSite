@@ -4,9 +4,10 @@ import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { statusLabel } from "@/components/admin/status-badge";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function ClientInvoicesPage({ params }: Props) {
+export default async function ClientInvoicesPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requireClientSession();
   if (!session) return null;

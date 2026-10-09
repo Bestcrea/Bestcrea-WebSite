@@ -6,12 +6,13 @@ import { notifyStaff } from "@/lib/notify";
 import { audit } from "@/lib/audit";
 import { createPurchaseOrderFromQuote } from "@/lib/documents";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 const ACTIONS = ["accept", "reject", "modify"] as const;
 
 /** The client accepts, rejects or asks for changes on one of THEIR quotes. */
-export async function POST(request: NextRequest, { params }: Params) {
+export async function POST(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireClientApi();
   if (auth.error) return auth.error;
   const userId = auth.session.user.id;

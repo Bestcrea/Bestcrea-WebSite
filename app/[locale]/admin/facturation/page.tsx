@@ -9,12 +9,14 @@ import { StatusBadge } from "@/components/admin/status-badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-type Props = { params: { locale: string }; searchParams: { q?: string; status?: string; page?: string } };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ q?: string; status?: string; page?: string }> };
 
 const PAGE_SIZE = 20;
 const STATUSES: InvoiceStatus[] = ["draft", "sent", "unpaid", "partially_paid", "paid", "overdue", "cancelled"];
 
-export default async function AdminInvoicesPage({ params, searchParams }: Props) {
+export default async function AdminInvoicesPage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("invoices.view");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

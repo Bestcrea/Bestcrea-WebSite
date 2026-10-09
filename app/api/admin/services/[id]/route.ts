@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAdminApi } from "@/lib/admin-api";
 import { prisma } from "@/lib/prisma";
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
-export async function GET(_req: NextRequest, { params }: Params) {
+export async function GET(_req: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi();
   if (auth.error) return auth.error;
 
@@ -13,7 +14,8 @@ export async function GET(_req: NextRequest, { params }: Params) {
   return NextResponse.json({ service });
 }
 
-export async function PATCH(request: NextRequest, { params }: Params) {
+export async function PATCH(request: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi();
   if (auth.error) return auth.error;
 
@@ -40,7 +42,8 @@ export async function PATCH(request: NextRequest, { params }: Params) {
   }
 }
 
-export async function DELETE(_req: NextRequest, { params }: Params) {
+export async function DELETE(_req: NextRequest, props: Params) {
+  const params = await props.params;
   const auth = await requireAdminApi();
   if (auth.error) return auth.error;
 

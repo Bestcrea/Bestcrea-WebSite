@@ -4,7 +4,7 @@ import { PageHero } from "@/components/layout/page-hero";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 const links = [
@@ -15,11 +15,13 @@ const links = [
   { href: "/ressources/blog", key: "blog" },
 ] as const;
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
   return buildPageMetadata({ locale: params.locale, path: "ressources", seoKey: "ressources" });
 }
 
-export default async function RessourcesPage({ params }: Props) {
+export default async function RessourcesPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.resources");
 

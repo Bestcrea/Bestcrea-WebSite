@@ -5,9 +5,11 @@ import { requirePermission } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { DocumentEditor } from "@/components/admin/document-editor";
 
-type Props = { params: { locale: string }; searchParams: { clientId?: string } };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ clientId?: string }> };
 
-export default async function NewInvoicePage({ params, searchParams }: Props) {
+export default async function NewInvoicePage(props: Props) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   setRequestLocale(params.locale);
   const session = await requirePermission("invoices.create");
   if (!session) return <p className="text-sm text-muted-foreground">Accès refusé.</p>;

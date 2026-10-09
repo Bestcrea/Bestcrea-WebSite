@@ -7,13 +7,15 @@ import { GoogleReviewsSection } from "@/components/sections/google-reviews-secti
 import { googleReviewsAverage, googleReviewsTotal } from "@/lib/google-reviews";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
-type Props = { params: { locale: string } };
+type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const params = await props.params;
   return buildPageMetadata({ locale: params.locale, path: "ressources/temoignages" });
 }
 
-export default async function TemoignagesPage({ params }: Props) {
+export default async function TemoignagesPage(props: Props) {
+  const params = await props.params;
   setRequestLocale(params.locale);
   const t = await getTranslations("Pages.resources.temoignages");
 

@@ -7,7 +7,8 @@ import { clean } from "@/lib/validators";
 import { confirmPayment } from "@/lib/payments";
 
 /** Verify a payment: confirm (creates the paid invoice) or reject. */
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const auth = await requireAdminApi("payments.verify");
   if (auth.error) return auth.error;
 
