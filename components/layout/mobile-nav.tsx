@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
   ArrowLeft,
+  MessageCircle,
   BarChart3,
   Bot,
   BookOpen,
@@ -40,6 +41,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { OPEN_CHAT_EVENT } from "@/lib/chat-events";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Logo } from "@/components/layout/logo";
 import {
@@ -96,6 +98,7 @@ type MobileNavProps = {
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
   const t = useTranslations("Navigation");
+  const tChat = useTranslations("Chat");
   const [level, setLevel] = useState<MobileLevel>({ kind: "root" });
 
   useEffect(() => {
@@ -106,8 +109,10 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.body.dataset.mobileMenu = "open"; // hides the floating chat button while the menu is open
     return () => {
       document.body.style.overflow = prev;
+      delete document.body.dataset.mobileMenu;
     };
   }, [open]);
 
@@ -338,6 +343,22 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         </div>
 
         <div className="sticky bottom-0 space-y-3 border-t border-black/10 bg-white px-4 py-3">
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              window.setTimeout(() => window.dispatchEvent(new Event(OPEN_CHAT_EVENT)), 200);
+            }}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#292D32] px-3 py-3 text-sm font-semibold text-white transition active:scale-[0.98]"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden />
+            {tChat("open")}
+            <span className="ms-1 flex items-center gap-0.5" aria-hidden>
+              <i className="chat-dot !bg-white" />
+              <i className="chat-dot !bg-white [animation-delay:.15s]" />
+              <i className="chat-dot !bg-white [animation-delay:.3s]" />
+            </span>
+          </button>
           <div className="grid grid-cols-2 gap-2">
             <Link
               href="/espace-client/login"
@@ -354,17 +375,15 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               {t("register")}
             </Link>
           </div>
-          <div className="flex items-center justify-between gap-3">
-            <LanguageSwitcher variant="light" />
-            <Link
-              href="/espace-client"
-              onClick={onClose}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#292D32]"
-            >
-              <User className="h-4 w-4" aria-hidden />
-              {t("clientSpace")}
-            </Link>
-          </div>
+          <LanguageSwitcher inline />
+          <Link
+            href="/espace-client"
+            onClick={onClose}
+            className="flex items-center justify-center gap-2 text-sm font-semibold text-[#292D32]"
+          >
+            <User className="h-4 w-4" aria-hidden />
+            {t("clientSpace")}
+          </Link>
         </div>
       </div>
     </>

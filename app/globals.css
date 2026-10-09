@@ -129,3 +129,11 @@
 @media (prefers-reduced-motion: reduce) {
   .svc3d-anim, .svc3d-anim * { animation: none !important; }
 }
+
+/* Chat FAB: "AI typing" invitation bubble + hide while the mobile menu is open */
+@keyframes chat-hint { 0%, 8% { opacity: 0; transform: translateY(6px) scale(.8); } 14%, 38% { opacity: 1; transform: none; } 46%, 100% { opacity: 0; transform: translateY(-4px) scale(.9); } }
+@keyframes chat-dot { 0%, 60%, 100% { transform: translateY(0); opacity: .45; } 30% { transform: translateY(-3px); opacity: 1; } }
+.chat-hint { animation: chat-hint 9s ease-in-out infinite; opacity: 0; }
+.chat-dot { display: block; width: 6px; height: 6px; border-radius: 9999px; background: #7A35FF; animation: chat-dot 1s ease-in-out infinite; }
+body[data-mobile-menu="open"] .chat-fab { display: none; }
+@media (prefers-reduced-motion: reduce) { .chat-hint { animation: none; opacity: 1; } .chat-dot { animation: none; } }

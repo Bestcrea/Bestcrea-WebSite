@@ -14,6 +14,7 @@ import {
   SquarePen,
   Send,
   Sparkles,
+  X,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { OPEN_CHAT_EVENT } from "@/lib/chat-events";
@@ -44,12 +45,6 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<UiMessage[]>([]);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const [phraseIdx, setPhraseIdx] = useState(0);
-
-  useEffect(() => {
-    const id = window.setInterval(() => setPhraseIdx((i) => i + 1), 3000);
-    return () => window.clearInterval(id);
-  }, []);
 
   useEffect(() => {
     const saved = window.localStorage.getItem(STORAGE_KEY);
@@ -437,28 +432,25 @@ export function ChatWidget() {
 
       <button
         type="button"
-        className="pointer-events-auto inline-flex h-14 items-center gap-2 rounded-full bg-accent px-5 font-semibold text-white shadow-xl shadow-accent/30 transition hover:-translate-y-0.5"
+        className="chat-fab pointer-events-auto relative grid h-14 w-14 place-items-center rounded-full bg-accent text-white shadow-xl shadow-accent/30 transition hover:-translate-y-0.5 active:scale-95"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        aria-label={t("open")}
+        aria-label={open ? t("close") : t("open")}
+        title={open ? t("close") : t("open")}
       >
-        <MessageCircle className="h-5 w-5" />
         {open ? (
-          <span>{t("close")}</span>
+          <X className="h-6 w-6" />
         ) : (
-          <span className="grid" aria-live="polite">
-            {[t("open"), t("rotate1"), t("rotate2")].map((label, i, arr) => (
-              <span
-                key={label}
-                className={cn(
-                  "col-start-1 row-start-1 whitespace-nowrap text-center transition-all duration-500",
-                  phraseIdx % arr.length === i ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"
-                )}
-              >
-                {label}
-              </span>
-            ))}
-          </span>
+          <>
+            <span className="absolute inset-0 rounded-full bg-accent/40 motion-safe:animate-ping [animation-duration:2.6s]" aria-hidden />
+            <MessageCircle className="relative h-6 w-6" />
+            {/* Small "AI is typing" bubble that pops up periodically to invite a click */}
+            <span className="chat-hint pointer-events-none absolute -top-3 end-1 flex items-center gap-1 rounded-2xl rounded-br-sm bg-white px-2.5 py-2 shadow-lg" aria-hidden>
+              <i className="chat-dot" />
+              <i className="chat-dot [animation-delay:.15s]" />
+              <i className="chat-dot [animation-delay:.3s]" />
+            </span>
+          </>
         )}
       </button>
     </div>
