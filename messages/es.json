@@ -1302,5 +1302,13 @@
     "sentText": "Nuestro equipo le responderá en breve con un presupuesto detallado.",
     "again": "Nueva solicitud",
     "required": "Campo obligatorio"
+  },
+  "Orders": {
+    "cancel": "Cancelar pedido",
+    "confirmTitle": "Cancelar pedido",
+    "confirmText": "¿Cancelar el pedido {number}?",
+    "yes": "Sí, cancelar",
+    "no": "No",
+    "cancelError": "No se puede cancelar este pedido."
   }
 }

@@ -1302,5 +1302,13 @@
     "sentText": "Our team will reply with a detailed quote very soon.",
     "again": "New request",
     "required": "Required field"
+  },
+  "Orders": {
+    "cancel": "Cancel order",
+    "confirmTitle": "Cancel order",
+    "confirmText": "Cancel order {number}?",
+    "yes": "Yes, cancel",
+    "no": "No",
+    "cancelError": "This order cannot be cancelled."
   }
 }

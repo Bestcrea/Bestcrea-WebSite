@@ -6,6 +6,7 @@ import { dateFmt, money } from "@/lib/format";
 import { StatusPill as StatusBadge } from "@/components/client/status-pill";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
+import { CancelOrderButton } from "@/components/client/cancel-order-button";
 import { PortalBanner } from "@/components/client/portal-banner";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -42,6 +43,9 @@ export default async function ClientOrdersPage(props: Props) {
                   <StatusBadge status={o.status} />
                   <p className="font-semibold text-primary">{money(o.total)} {o.currency}</p>
                   <Button asChild variant="accent" size="sm"><Link href={`/espace-client/commandes/${o.id}`}>Détails</Link></Button>
+                  {["pending", "awaiting_payment"].includes(o.status) && o.paymentStatus !== "confirmed" ? (
+                    <CancelOrderButton orderId={o.id} number={o.number} />
+                  ) : null}
                 </div>
               </li>
             ))}

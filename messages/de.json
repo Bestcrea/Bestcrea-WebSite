@@ -1302,5 +1302,13 @@
     "sentText": "Unser Team meldet sich in Kürze mit einem detaillierten Angebot.",
     "again": "Neue Anfrage",
     "required": "Pflichtfeld"
+  },
+  "Orders": {
+    "cancel": "Bestellung stornieren",
+    "confirmTitle": "Bestellung stornieren",
+    "confirmText": "Bestellung {number} stornieren?",
+    "yes": "Ja, stornieren",
+    "no": "Nein",
+    "cancelError": "Diese Bestellung kann nicht storniert werden."
   }
 }

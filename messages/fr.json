@@ -1302,5 +1302,13 @@
     "sentText": "Notre équipe vous répond avec un devis détaillé très prochainement.",
     "again": "Nouvelle demande",
     "required": "Champ obligatoire"
+  },
+  "Orders": {
+    "cancel": "Annuler la commande",
+    "confirmTitle": "Annuler la commande",
+    "confirmText": "Annuler la commande {number} ?",
+    "yes": "Oui, annuler",
+    "no": "Non",
+    "cancelError": "Impossible d'annuler cette commande."
   }
 }
