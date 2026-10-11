@@ -24,6 +24,20 @@ function mshot(url: string) {
  */
 export const portfolioSites: PortfolioSite[] = [
   {
+    slug: "aradi24",
+    name: "Aradi 24",
+    url: "https://aradi24.ma/fr",
+    screenshot: mshot("https://aradi24.ma/fr"),
+    category: "Immobilier",
+  },
+  {
+    slug: "pizza-aldo",
+    name: "Pizza Aldo",
+    url: "https://pizzaaldo.uk",
+    screenshot: mshot("https://pizzaaldo.uk"),
+    category: "Restauration",
+  },
+  {
     slug: "bold-beauty-lounge",
     name: "Bold Beauty Lounge",
     url: "https://boldbeautylounge.com",
