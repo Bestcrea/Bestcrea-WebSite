@@ -26,8 +26,8 @@ export const portfolioSites: PortfolioSite[] = [
   {
     slug: "aradi24",
     name: "Aradi 24",
-    url: "https://aradi24.ma/fr",
-    screenshot: mshot("https://aradi24.ma/fr"),
+    url: "https://aradi24.ma",
+    screenshot: mshot("https://aradi24.ma"),
     category: "Immobilier",
   },
   {
